@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
+import {
+  Switch,
+  Route,
+} from "react-router-dom";
 import Home from './componets/Home'
+import Profile from './componets/Profile'
 import './App.css';
 
 class App extends Component {
-  state = {users: []}
+  state = { users: [] }
 
   componentDidMount() {
     fetch('/users')
@@ -16,9 +22,13 @@ class App extends Component {
       return <div key={user.id}>{user.username}</div>
     })
     return (
-      <div className="App">
-        <Home user={currentUser}/>
-      </div>
+      <Switch>
+        <div>
+          <Route exact path='/' component={(props) => <Home user={currentUser} />} />
+          <Route path='/profile' component={(props) => <Profile />} />
+        </div>
+      </Switch>
+
     );
   }
 }

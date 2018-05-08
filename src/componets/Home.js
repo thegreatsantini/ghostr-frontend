@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
     Collapse,
     Button,
@@ -26,7 +27,7 @@ class Home extends Component {
             <div>
                 <div className='container'>
                     <div className='left'>
-                        <h1>InkyTweet</h1>
+                        <Link to='/'><h1>InkyTweet</h1></Link>
                         <ListGroup>
                             <ListGroupItem onClick={this.toggle}>
                                 get paid to write
@@ -52,7 +53,7 @@ class Home extends Component {
                     </div>
                     <hr />
                     <div>
-                    <Button color="primary">Log In</Button>
+                    <Link to='/profile'><Button color="primary">Log In</Button></Link>
                     </div>
                 </div>
             </div>
