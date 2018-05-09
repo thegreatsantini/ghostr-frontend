@@ -8,9 +8,15 @@ import Profile from './componets/Profile'
 import './App.css';
 
 class App extends Component {
-  state = { users: [] }
+  constructor() {
+    super()
+    this.state = {
+      users : []
+    }
+  }
 
   componentDidMount() {
+
     fetch('http://localhost:8080/users')
       .then(res => res.json())
       .then(users => {
@@ -24,6 +30,7 @@ class App extends Component {
     //   .then(data => {
     //     //window.location = data.redirect;
     //     console.log(data);
+
     //   });
   }
   render() {

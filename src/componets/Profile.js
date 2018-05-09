@@ -18,15 +18,6 @@ class Profile extends Component {
         }
     }
 
-    componentDidMount() {
-        fetch('/users')
-            .then(res => {
-                console.log('************')
-                console.log(res)
-                res.json()
-            })
-            .then(users => this.setState({ users }));
-    }
 
     render() {
         let currentUser = this.state.users.map(user => {
