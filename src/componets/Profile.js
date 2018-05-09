@@ -4,25 +4,38 @@ import {
     NavLink,
     HashRouter
 } from "react-router-dom";
+import User from './User'
 import Tweets from './Tweets'
 import Stats from './Stats'
-import Home from './Home'
 import '../Profile.css'
 
 
 class Profile extends Component {
-    constructor() {
-        super(
-
-        )
+    constructor(props) {
+        super(props)
+        this.state = {
+            user: []
+        }
     }
 
+    componentDidMount() {
+        fetch('/users')
+            .then(res => {
+                console.log('************')
+                console.log(res)
+                res.json()
+            })
+            .then(users => this.setState({ users }));
+    }
 
     render() {
+        let currentUser = this.state.users.map(user => {
+            return <div key={user.id}>{user.username}</div>
+        })
         return (
             <HashRouter>
                 <div>
-                    <h1>Simple SPA</h1>
+                    <h1>Profile Page</h1>
                     <ul className="header">
                         <li><NavLink to="/tweets">Tweets</NavLink></li>
                         <li><NavLink to="/stats">Stats</NavLink></li>
@@ -30,6 +43,7 @@ class Profile extends Component {
                     <div className="content">
                         <Route path="/tweets" component={Tweets} />
                         <Route path="/stats" component={Stats} />
+                        <Route path='/user' component={(props) => <User user={currentUser} />} />
                     </div>
                 </div>
             </HashRouter>

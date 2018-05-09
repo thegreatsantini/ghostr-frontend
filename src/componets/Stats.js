@@ -1,25 +1,13 @@
 import React, { Component } from "react";
-import {
-    Route,
-    NavLink,
-    HashRouter
-} from "react-router-dom";
 
 class Stats extends Component {
-    constructor() {
-        super(
-
-        )
-    }
-
-
     render() {
         return (
-            <HashRouter>
                 <div>
-                    Here be Stats
+                    <h2>These are stats</h2>
+                    <h3>much wow</h3>
+                    <h3>Such React</h3>
                 </div>
-            </HashRouter>
         );
     }
 }

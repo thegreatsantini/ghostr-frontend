@@ -22,15 +22,11 @@ class App extends Component {
       });
   }
   render() {
-    let currentUser = this.state.users.map(user => {
-      return <div key={user.id}>{user.username}</div>
-    })
     return (
       <Switch>
         <Route exact path='/' component={(props) => <Home user={currentUser} />} />
         <Route path='/profile' component={(props) => <Profile />} />
       </Switch>
-
     );
   }
 }
