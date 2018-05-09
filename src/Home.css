@@ -1,12 +1,6 @@
 body {
     background-color: aquamarine;
-        overflow: hidden;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center; /*centers items on the line (the x-axis by default)*/
-        align-items: center; /*centers items on the cross-axis (y by default)*/
+    
 }
 
 .container {
@@ -14,10 +8,11 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;    
+    
 }
 
 .container div {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     
 }
 
