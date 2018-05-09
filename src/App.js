@@ -11,9 +11,15 @@ class App extends Component {
   state = { users: [] }
 
   componentDidMount() {
-    fetch('http://localhost:8080/users')
+    // fetch('http://localhost:8080/users')
+    //   .then(res => res.json())
+    //   .then(users => this.setState({ users }));
+
+    fetch('http://localhost:8080/fe')
       .then(res => res.json())
-      .then(users => this.setState({ users }));
+      .then(data => {
+        window.location = data.redirect;
+      });
   }
   render() {
     let currentUser = this.state.users.map(user => {
