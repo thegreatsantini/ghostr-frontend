@@ -2,12 +2,11 @@ import React, { Component } from "react";
 
 class Stats extends Component {
     render() {
-        let currentUser = this.props.users.map(user => {
-            return <div key={user.id}>{user.username}</div>
-        })
         return (
                 <div>
-                    {currentUser}
+                    <h2>These are stats</h2>
+                    <h3>much wow</h3>
+                    <h3>Such React</h3>
                 </div>
         );
     }
