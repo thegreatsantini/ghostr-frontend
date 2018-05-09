@@ -11,20 +11,25 @@ class App extends Component {
   state = { users: [] }
 
   componentDidMount() {
-    // fetch('http://localhost:8080/users')
-    //   .then(res => res.json())
-    //   .then(users => this.setState({ users }));
-
-    fetch('http://localhost:8080/fe')
+    fetch('http://localhost:8080/users')
       .then(res => res.json())
-      .then(data => {
-        window.location = data.redirect;
-      });
+      .then(users => {
+        //this.setState({ users });
+        console.log(users);
+      })
+      .then(data => console.log(data));
+
+    // fetch('http://localhost:8080/fe')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     //window.location = data.redirect;
+    //     console.log(data);
+    //   });
   }
   render() {
     return (
       <Switch>
-        <Route exact path='/' component={(props) => <Home user={currentUser} />} />
+        <Route exact path='/' component={(props) => <Home />} />
         <Route path='/profile' component={(props) => <Profile />} />
       </Switch>
     );
