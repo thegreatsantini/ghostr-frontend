@@ -1,25 +1,14 @@
 import React, { Component } from "react";
-import {
-    Route,
-    NavLink,
-    HashRouter
-} from "react-router-dom";
 
 class Stats extends Component {
-    constructor() {
-        super(
-
-        )
-    }
-
-
     render() {
+        let currentUser = this.props.users.map(user => {
+            return <div key={user.id}>{user.username}</div>
+        })
         return (
-            <HashRouter>
                 <div>
-                    Here be Stats
+                    {currentUser}
                 </div>
-            </HashRouter>
         );
     }
 }

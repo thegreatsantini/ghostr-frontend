@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
 import {
   Switch,
   Route,
@@ -23,10 +22,8 @@ class App extends Component {
     })
     return (
       <Switch>
-        <div>
-          <Route exact path='/' component={(props) => <Home user={currentUser} />} />
-          <Route path='/profile' component={(props) => <Profile />} />
-        </div>
+        <Route exact path='/' component={(props) => <Home user={currentUser} />} />
+        <Route path='/profile' component={(props) => <Profile />} />
       </Switch>
 
     );

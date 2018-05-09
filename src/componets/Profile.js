@@ -6,19 +6,31 @@ import {
 } from "react-router-dom";
 import Tweets from './Tweets'
 import Stats from './Stats'
-import Home from './Home'
 import '../Profile.css'
 
 
 class Profile extends Component {
-    constructor() {
-        super(
-
-        )
+    constructor(props) {
+        super(props)
+        this.state = {
+            user: []
+        }
     }
 
 
+    componentDidMount() {
+        fetch('/users')
+            .then(res => {
+                console.log('res', res)
+                res.json()
+            })
+            .then(users => this.setState({ users }));
+    }
+
     render() {
+        // let currentUser = this.state.users.map(user => {
+        //     return <div key={user.id}>{user.username}</div>
+        // })
         return (
             <HashRouter>
                 <div>
