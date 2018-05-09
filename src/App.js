@@ -8,23 +8,32 @@ import Profile from './componets/Profile'
 import './App.css';
 
 class App extends Component {
-  state = { users: [] }
+  state = { 
+    user: [],
+    userName: '' 
+  }
 
   componentDidMount() {
-    fetch('http://localhost:8080/users')
-      .then(res => res.json())
-      .then(users => {
-        //this.setState({ users });
-        console.log(users);
-      })
-      .then(data => console.log(data));
-
-    // fetch('http://localhost:8080/fe')
+    // fetch('http://localhost:8080/users')
     //   .then(res => res.json())
-    //   .then(data => {
-    //     //window.location = data.redirect;
-    //     console.log(data);
-    //   });
+    //   .then(users => {
+    //     //this.setState({ users });
+    //     console.log(users);
+    //   })
+    //   .then(data => console.log(data));
+
+    fetch('http://localhost:8080/')
+      .then(res => res.json())
+      .then(data => {
+        console.log('data from twitter', data);
+        if(data && data.redirect){
+          fetch(data.redirect)
+          .then(twitterResults => {
+            console.log("user info\n", twitterResults);
+            this.setState({ userName: twitterResults.user.screen_name })
+          })
+        }
+      });
   }
   render() {
     return (
