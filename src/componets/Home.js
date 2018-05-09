@@ -53,7 +53,8 @@ class Home extends Component {
                     </div>
                     <hr />
                     <div>
-                    <Link to='/profile'><Button color="primary">Log In</Button></Link>
+                        <Link to='/profile'><Button color="primary">Log In</Button></Link>
+                        <Button color="primary"><a href='http://localhost:8080/sessions/connect'>Twitter</a></Button>
                     </div>
                 </div>
             </div>

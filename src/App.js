@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
 import {
   Switch,
   Route,
@@ -16,17 +15,14 @@ class App extends Component {
       .then(res => res.json())
       .then(users => this.setState({ users }));
   }
-
   render() {
     let currentUser = this.state.users.map(user => {
       return <div key={user.id}>{user.username}</div>
     })
     return (
       <Switch>
-        <div>
-          <Route exact path='/' component={(props) => <Home user={currentUser} />} />
-          <Route path='/profile' component={(props) => <Profile />} />
-        </div>
+        <Route exact path='/' component={(props) => <Home user={currentUser} />} />
+        <Route path='/profile' component={(props) => <Profile />} />
       </Switch>
 
     );
