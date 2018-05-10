@@ -93,7 +93,7 @@ class App extends Component {
     (
   <TwitterLogin loginUrl="http://localhost:8080/auth/twitter"
                 onFailure={this.onFailed} onSuccess={this.onSuccess}
-                requestTokenUrl="http://localhost:8080/auth/twitter/reverse"/>
+                requestTokenUrl="http://localhost:8080/auth/twitter/reverse" />
     );
 
   return (
