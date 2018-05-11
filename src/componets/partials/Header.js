@@ -9,6 +9,7 @@ import {
     FormGroup,
     FormControl
 } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
     render() {
@@ -17,7 +18,7 @@ class Header extends Component {
                 <Navbar>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a to="/">InkyTweet</a>
+                            <a href="http://localhost:3000/">InkyTweet</a>
                         </Navbar.Brand>
                     </Navbar.Header>
                     <Nav>
