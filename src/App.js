@@ -7,7 +7,7 @@ import Home from './componets/Home'
 import Profile from './componets/Profile'
 import './App.css';
 // import TwitterLogin from 'react-twitter-auth';
-// import Autosuggest from 'react-autosuggest';
+
 
 // const languages = [
 //   {
