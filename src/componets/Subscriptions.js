@@ -4,7 +4,7 @@ class Subscriptions extends Component {
     render() {
         let subsList = this.props.subs.map( (sub, i) => {
             return (
-                <div>
+                <div key={i}>
                     <p>{i}: {sub}</p>
                 </div>
             )

@@ -20,7 +20,8 @@ class App extends Component {
       .then(res => res.json())
       .then(seededUsers => {
         this.setState({ users: seededUsers[0] });
-      }).then(() => console.log(this.state.users))
+      })
+      // .then(() => console.log(this.state.users))
   }
   render() {
     return (
