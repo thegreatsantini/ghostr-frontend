@@ -1,11 +1,15 @@
 import React, { Component } from "react";
+import Subscriptions from './Subscriptions'
 
 class User extends Component {
     render() {
+        let regex = /^(\w){6}/g
+        let customName = this.props.user._id.match(regex)
         return (
                 <div>
-                
-                    <img alt={'doge :D'} src={'https://i.amz.mshcdn.com/1ACufGTgPOakdEchT5vGkdQAraM=/fit-in/1200x9600/http%3A%2F%2Fmashable.com%2Fwp-content%2Fuploads%2F2015%2F06%2Fdogesos.png'} />
+                    <h1> Hello {customName} </h1>
+                <h2>Your reputation: {this.props.user.reputation}</h2>
+                <Subscriptions subs={this.props.user.subscriptions} />
                 </div>
         );
     }

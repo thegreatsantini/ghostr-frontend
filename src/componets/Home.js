@@ -9,6 +9,7 @@ import {
     ListGroupItem,
 } from 'reactstrap'
 import '../Home.css'
+import Search from './Search'
 
 class Home extends Component {
     constructor(props) {
@@ -54,7 +55,8 @@ class Home extends Component {
                     <hr />
                     <div>
                         <Link to='/profile'><Button color="primary">Log In</Button></Link>
-                        <Button color="primary"><a href='http://localhost:8080/sessions/connect'>Twitter</a></Button>
+                        <Button color="primary"><a href='http://localhost:8080/sessions/connect'>Twitter</a></Button>  
+                        <Search />
                     </div>
                 </div>
             </div>

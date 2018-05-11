@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import {
     Route,
-    NavLink,
-    HashRouter
+    HashRouter,
 } from "react-router-dom";
+import Header from './partials/Header'
 import User from './User'
 import Tweets from './Tweets'
 import Stats from './Stats'
@@ -18,23 +18,19 @@ class Profile extends Component {
         }
     }
 
+    componentDidMount = () => {
+        // console.log('passing some badA$$ props' , this.props.user)
+    }
 
     render() {
-        let currentUser = this.state.users.map(user => {
-            return <div key={user.id}>{user.username}</div>
-        })
         return (
             <HashRouter>
                 <div>
-                    <h1>Profile Page</h1>
-                    <ul className="header">
-                        <li><NavLink to="/tweets">Tweets</NavLink></li>
-                        <li><NavLink to="/stats">Stats</NavLink></li>
-                    </ul>
+                    <Header />
                     <div className="content">
                         <Route path="/tweets" component={Tweets} />
                         <Route path="/stats" component={Stats} />
-                        <Route path='/user' component={(props) => <User user={currentUser} />} />
+                        <Route path='/user' component={(props) => <User user={this.props.user} />} />
                     </div>
                 </div>
             </HashRouter>
