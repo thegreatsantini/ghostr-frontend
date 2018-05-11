@@ -7,9 +7,9 @@ import {
     Card,
     ListGroup,
     ListGroupItem,
-} from 'reactstrap';
-import '../Home.css';
-import Search from './Search';
+} from 'reactstrap'
+import '../Home.css'
+import Search from './Search'
 
 class Home extends Component {
     constructor(props) {
