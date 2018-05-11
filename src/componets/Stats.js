@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Clearfix, Grid } from 'react-bootstrap'
+import { Row, Col, Grid } from 'react-bootstrap'
 
 class Stats extends Component {
     render() {
