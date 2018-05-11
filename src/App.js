@@ -99,7 +99,6 @@ class App extends Component {
   //   });
   // };
 
- 
     
 
   // componentDidMount() {
@@ -120,9 +119,12 @@ class App extends Component {
   // }
   componentDidMount() {
     fetch('http://localhost:8080/users')
-      .then(res => res.json())
+      .then(res => {
+        console.log(res.json())
+        // res.json()
+      } )
       .then(seededUsers => {
-        this.setState({ users: seededUsers[0] });
+        // this.setState({ users: seededUsers[0] });
       })
       // .then(() => console.log(this.state.users))
   }
