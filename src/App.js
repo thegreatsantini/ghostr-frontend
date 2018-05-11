@@ -48,7 +48,6 @@ import './App.css';
 //     // Suggestions also need to be provided to the Autosuggest,
 //     // and they are initially empty because the Autosuggest is closed.
 class App extends Component {
-  //state = { users: [] }
   constructor(props) {
     super(props);
     this.state = { 
@@ -100,12 +99,7 @@ class App extends Component {
   //   });
   // };
 
-  // componentDidMount() {
-  //   setTimeout(() => {
-  //     console.log(this.state.user);
-  //   }, 3000);
     
-  // }
 
   // componentDidMount() {
   //   fetch('http://localhost:8080/users')
@@ -123,6 +117,17 @@ class App extends Component {
     //     console.log(data);
     //   });
   // }
+  componentDidMount() {
+    fetch('http://localhost:8080/users')
+      .then(res => {
+        console.log(res.json())
+        // res.json()
+      } )
+      .then(seededUsers => {
+        // this.setState({ users: seededUsers[0] });
+      })
+      // .then(() => console.log(this.state.users))
+  }
   render() {
     // const { value, suggestions } = this.state;
 
