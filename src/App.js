@@ -6,6 +6,7 @@ import {
 import Home from './componets/Home'
 import Profile from './componets/Profile'
 import './App.css';
+import axios from 'axios'
 // import TwitterLogin from 'react-twitter-auth';
 // import Autosuggest from 'react-autosuggest';
 
@@ -50,9 +51,9 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      isAuthenticated: false, 
-      user: null, 
+    this.state = {
+      isAuthenticated: false,
+      user: 'here i am',
       token: ''
       // value: '',
       // suggestions: []
@@ -64,7 +65,7 @@ class App extends Component {
     const token = response.headers.get('x-auth-token');
     response.json().then(user => {
       if (token) {
-        this.setState({isAuthenticated: true, user: user, token: token});
+        this.setState({ isAuthenticated: true, user: user, token: token });
       }
     });
   };
@@ -75,7 +76,7 @@ class App extends Component {
   };
 
   logout = () => {
-    this.setState({isAuthenticated: false, token: '', user: null})
+    this.setState({ isAuthenticated: false, token: '', user: null })
   };
 
   // onChange = (event, { newValue }) => {
@@ -99,7 +100,7 @@ class App extends Component {
   //   });
   // };
 
-    
+
 
   // componentDidMount() {
   //   fetch('http://localhost:8080/users')
@@ -110,23 +111,22 @@ class App extends Component {
   //     })
   //     .then(data => console.log(data));
 
-    // fetch('http://localhost:8080/fe')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     //window.location = data.redirect;
-    //     console.log(data);
-    //   });
+  // fetch('http://localhost:8080/fe')
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     //window.location = data.redirect;
+  //     console.log(data);
+  //   });
   // }
   componentDidMount() {
-    fetch('http://localhost:8080/users')
+    axios.get('http://localhost:8080/users')
       .then(res => {
-        console.log(res.json())
-        // res.json()
-      } )
-      .then(seededUsers => {
-        // this.setState({ users: seededUsers[0] });
+        console.log(res.data)
+      // }).then(seededUsers => {
+      //   console.log(seededUsers)
+      //   this.setState({ user: seededUsers });
       })
-      // .then(() => console.log(this.state.users))
+      .then(() => setTimeout(() => {console.log(this.state.user)}, 3000))
   }
   render() {
     // const { value, suggestions } = this.state;
@@ -184,7 +184,7 @@ class App extends Component {
   //     {content}
   //   </div>
   // );
-//}
+  //}
 
 }
 
