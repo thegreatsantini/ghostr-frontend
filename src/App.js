@@ -24,20 +24,19 @@ class App extends Component {
   componentDidMount() {
   // OAuth: Added function for Twitter users
     axios.get('http://localhost:8080/auth/user').then(response => {
+      console.log('axios response', response);
       if (response.data.user) {
+        console.log('if statement');
         // We found a twitter user in the server session
         let twitterUser = {
           twitterId: response.data.user.twitterId,
           displayName: response.data.user.displayName
         }
-        this.setState({
-          twitterUser
-        })
+        this.setState({ twitterUser })
       } else {
+        console.log('else statement');
         // We did not find a user in the server session
-        this.setState({
-          user: null
-        })
+        this.setState({ user: null })
       }
     })
 
@@ -53,8 +52,8 @@ class App extends Component {
     //       })
     //     }
     //   });
-  }
 
+  }
 
   // onSuccess = (response) => {
   //   console.log('success');
