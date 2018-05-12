@@ -6,7 +6,9 @@ import {
 import Home from './componets/Home'
 import Profile from './componets/Profile'
 import './App.css';
+
 import axios from 'axios';
+
 
 class App extends Component {
   constructor(props) {
@@ -55,6 +57,7 @@ class App extends Component {
 
   }
 
+
   // onSuccess = (response) => {
   //   console.log('success');
   //   const token = response.headers.get('x-auth-token');
@@ -75,11 +78,12 @@ class App extends Component {
   // };
 
   render() {
+
     return (
       <div>
         <Switch>
           <Route exact path='/' component={(props) => <Home />} />
-          <Route path='/profile' component={(props) => <Profile />} />
+          <Route path='/profile' component={(props) => <Profile user={newUser} />} />
         </Switch>
       </div>
     );
@@ -112,7 +116,7 @@ class App extends Component {
   //     {content}
   //   </div>
   // );
-//}
+  //}
 
 }
 
