@@ -53,7 +53,7 @@ class App extends Component {
     super(props);
     this.state = {
       isAuthenticated: false,
-      user: 'here i am',
+      user: {},
       token: ''
       // value: '',
       // suggestions: []
@@ -119,14 +119,12 @@ class App extends Component {
   //   });
   // }
   componentDidMount() {
-    axios.get('http://localhost:8080/users')
-      .then(res => {
-        console.log(res.data)
-      // }).then(seededUsers => {
-      //   console.log(seededUsers)
-      //   this.setState({ user: seededUsers });
-      })
-      .then(() => setTimeout(() => {console.log(this.state.user)}, 3000))
+    // axios.get('http://localhost:8080/users')
+    //   .then(res => {
+    //     this.setState({
+    //       user: res.data
+    //     })
+    //   }).then(() => setTimeout(() => { console.log(this.state.user) }, 3000))
   }
   render() {
     // const { value, suggestions } = this.state;
@@ -138,12 +136,50 @@ class App extends Component {
     //   onChange: this.onChange
     // };
 
-    // // Finally, render it!
+    // // Finally, render it
+
+    let newUser = {
+      accessToken: 'String2',
+		accessTokenSecret: 'String2',
+		twitterId: 'String2',
+		reputation: 2,
+    subscriptions: ['userId2', 'userId5', 'userId1'],
+    writtenTweets: [
+      {
+      body: 'bork bork bork',
+      categories: ['love', 'instagood', 'photooftheday', 'fashion', 'beautiful', 'happy', 'cute', 'tbt', 'like4like', 'followme', 'picoftheday', 'follow', 'me', 'selfie', 'summer', 'art', 'instadaily', 'friends', 'repost', 'nature', 'girl', 'fun', 'style', 'smile', 'food', 'instalike', 'likeforlike', 'family', 'travel', 'fitness', 'igers', 'tagsforlikes', 'follow4follow', 'nofilter', 'life', 'beauty', 'amazing', 'instamood', 'instagram', 'photography', 'vscocam', 'sun', 'photo', 'music', 'beach', 'followforfollow']
+    },
+    {
+      body: 'doge luvs 2 bork',
+      categories: ['bestoftheday', 'sky', 'ootd', 'sunset', 'dog', 'vsco', 'l4l', 'makeup', 'f4f', 'foodporn', 'hair', 'pretty', 'swag', 'cat', 'model', 'motivation', 'girls', 'baby', 'party', 'cool', 'lol', 'gym', 'design', 'instapic', 'funny', 'healthy', 'night', 'tflers', 'yummy']
+    },
+    {
+      body: 'doge is bae',
+      categories: ['flowers', 'lifestyle', 'hot', 'instafood', 'wedding', 'fit', 'handmade', 'black', 'pink', 'blue', 'work', 'workout', 'blackandwhite', 'drawing', 'inspiration', 'home', 'holiday', 'christmas', 'nyc', 'london', 'sea', 'instacool', 'goodmorning', 'iphoneonly']
+    },],
+    purchasedTweet: [{
+      creator: 'userId223',
+      body: 'This is a tweet',
+      categories: ['love', 'instagood', 'photooftheday', 'fashion', 'beautiful', 'happy', 'cute', 'tbt', 'like4like', 'followme', 'picoftheday', 'follow', 'me', 'selfie', 'summer', 'art', 'instadaily', 'friends', 'repost', 'nature', 'girl', 'fun', 'style', 'smile', 'food', 'instalike', 'likeforlike', 'family', 'travel', 'fitness', 'igers', 'tagsforlikes', 'follow4follow', 'nofilter', 'life', 'beauty', 'amazing', 'instamood', 'instagram', 'photography', 'vscocam', 'sun', 'photo', 'music', 'beach', 'followforfollow']
+    },
+    {
+      creator: 'userId21231',
+      body: 'Here is another tweet',
+      categories: ['bestoftheday', 'sky', 'ootd', 'sunset', 'dog', 'vsco', 'l4l', 'makeup', 'f4f', 'foodporn', 'hair', 'pretty', 'swag', 'cat', 'model', 'motivation', 'girls', 'baby', 'party', 'cool', 'lol', 'gym', 'design', 'instapic', 'funny', 'healthy', 'night', 'tflers', 'yummy']
+    },
+    {
+      creator: 'userId123',
+      body: 'this is afunny tweet ahahahahah',
+      categories: ['flowers', 'lifestyle', 'hot', 'instafood', 'wedding', 'fit', 'handmade', 'black', 'pink', 'blue', 'work', 'workout', 'blackandwhite', 'drawing', 'inspiration', 'home', 'holiday', 'christmas', 'nyc', 'london', 'sea', 'instacool', 'goodmorning', 'iphoneonly']
+    },]
+    
+    }
+
     return (
       <div>
         <Switch>
           <Route exact path='/' component={(props) => <Home />} />
-          <Route path='/profile' component={(props) => <Profile />} />
+          <Route path='/profile' component={(props) => <Profile user={newUser} />} />
         </Switch>
         {/*<Autosuggest
           suggestions={suggestions}

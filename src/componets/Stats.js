@@ -1,21 +1,53 @@
 import React, { Component } from "react";
 import { Row, Col, Grid } from 'react-bootstrap'
+import {
+    Card, CardHeader, CardFooter,
+    CardTitle, CardText, Collapse, Button, CardBody
+} from 'reactstrap';
 
 class Stats extends Component {
+    constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = { collapse: false };
+    }
+
+    toggle() {
+        this.setState({ collapse: !this.state.collapse });
+    }
+
     render() {
-        const dummySentences = [
-            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-            'Donec hendrerit tempor tellus.',
-            'Donec pretium posuere tellus.',
-            'Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.',
-            'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-            'Nulla posuere.',
-            'Donec vitae dolor.',
-            'Nullam tristique diam non turpis.',
-            'Cras placerat accumsan nulla.',
-            'Nullam rutrum.',
-            'Nam vestibulum accumsan nisl.'
-        ];
+        const purchasedTweet = this.props.user.purchasedTweet.map((sub, i) => {
+            return (
+                <div key={i} >
+                    <Card>
+                        <CardHeader>{sub.creator}</CardHeader>
+                        <CardBody>
+                            <CardTitle>Special Title Treatment</CardTitle>
+                            <CardText>{sub.body}</CardText>
+                            <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>
+                            <Collapse isOpen={this.state.collapse}>
+                                <Card>
+                                    <CardBody>
+                                        {sub.categories}
+                                    </CardBody>
+                                </Card>
+                            </Collapse>
+                        </CardBody>
+                        <CardFooter>Footer</CardFooter>
+                    </Card>
+                </div>
+            )
+        })
+
+        const writtenTweets = this.props.user.writtenTweets.map((tweet, i) => {
+            return (
+                <div key={i}>
+                    { tweet.body }
+                </div>
+            )
+        })
+        // console.log(writtenTweets)
 
         const style = {
             border: '2px solid black'
@@ -26,10 +58,10 @@ class Stats extends Component {
                 <Grid>
                     <Row className="show-grid">
                         <Col style={style} md={6} mdPush={6}>
-                            {dummySentences.slice(0, 6).join(' ')}
+                            { purchasedTweet }
                         </Col>
                         <Col style={style} md={6} mdPull={6}>
-                            {dummySentences.slice(0, 4).join(' ')}
+                            { writtenTweets }
                         </Col>
                     </Row>
                 </Grid>
