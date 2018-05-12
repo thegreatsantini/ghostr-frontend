@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 
-// let categories = [];
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value, suggestionList) => {
@@ -25,7 +24,7 @@ const renderSuggestion = suggestion => (
   </div>
 );
 
-class Search extends React.Component {
+class Search extends Component {
   constructor() {
     super();
 
@@ -80,9 +79,29 @@ class Search extends React.Component {
       onChange: this.onChange
     };
 
+    const searchStyle = {
+      display: 'block',
+      width: '100%',
+      height: '34px',
+      padding: '6px 12px',
+      fontSize: '14px',
+      lineHeight: '1.42857143',
+      color: '#555',
+      backgroundColor: '#fff',
+      backgroundImage: 'none',
+      border: '1px solid #ccc',
+      borderRadius: '4px',
+      webkitBoxShadow: 'inset 0 1px 1px rgba(0, 0, 0, .075)',
+      boxShadow: 'inset 0 1px 1px rgba(0, 0, 0, .075)',
+      webkitTransition: 'border - color ease -in -out .15s, -webkit - box - shadow ease -in -out .15s',
+      oTransition: 'border - color ease -in -out .15s, box - shadow ease -in -out .15s',
+      transition: 'border - color ease -in -out .15s, box - shadow ease -in -out .15s',
+    }
     // Finally, render it!
     return (
       <Autosuggest
+        style={searchStyle}
+        className="form-control"
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
