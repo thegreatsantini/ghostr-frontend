@@ -6,174 +6,78 @@ import {
 import Home from './componets/Home'
 import Profile from './componets/Profile'
 import './App.css';
-import axios from 'axios'
-// import TwitterLogin from 'react-twitter-auth';
-// import Autosuggest from 'react-autosuggest';
 
-// const languages = [
-//   {
-//     name: 'C',
-//     year: 1972
-//   },
-//   {
-//     name: 'Elm',
-//     year: 2012
-//   }
-// ];
+import axios from 'axios';
 
-// // Teach Autosuggest how to calculate suggestions for any given input value.
-// const getSuggestions = value => {
-//   const inputValue = value.trim().toLowerCase();
-//   const inputLength = inputValue.length;
 
-//   return inputLength === 0 ? [] : languages.filter(lang =>
-//     lang.name.toLowerCase().slice(0, inputLength) === inputValue
-//   );
-// };
-
-// // When suggestion is clicked, Autosuggest needs to populate the input
-// // based on the clicked suggestion. Teach Autosuggest how to calculate the
-// // input value for every given suggestion.
-// const getSuggestionValue = suggestion => suggestion.name;
-
-// // Use your imagination to render suggestions.
-// const renderSuggestion = suggestion => (
-//   <div>
-//     {suggestion.name}
-//   </div>
-// );
-
-//     // Autosuggest is a controlled component.
-//     // This means that you need to provide an input value
-//     // and an onChange handler that updates this value (see below).
-//     // Suggestions also need to be provided to the Autosuggest,
-//     // and they are initially empty because the Autosuggest is closed.
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isAuthenticated: false,
-      user: {},
-      token: ''
-      // value: '',
-      // suggestions: []
+    this.state = { 
+      // isAuthenticated: false, 
+      // user: null, 
+      // token: ''
+      twitterId: '',
+      displayName: '',
+      user: null
     };
   }
 
-  onSuccess = (response) => {
-    console.log('success');
-    const token = response.headers.get('x-auth-token');
-    response.json().then(user => {
-      if (token) {
-        this.setState({ isAuthenticated: true, user: user, token: token });
-      }
-    });
-  };
-
-  onFailed = (error) => {
-    console.log('fail');
-    alert(error);
-  };
-
-  logout = () => {
-    this.setState({ isAuthenticated: false, token: '', user: null })
-  };
-
-  // onChange = (event, { newValue }) => {
-  //   this.setState({
-  //     value: newValue
-  //   });
-  // };
-
-  // // Autosuggest will call this function every time you need to update suggestions.
-  // // You already implemented this logic above, so just use it.
-  // onSuggestionsFetchRequested = ({ value }) => {
-  //   this.setState({
-  //     suggestions: getSuggestions(value)
-  //   });
-  // };
-
-  // // Autosuggest will call this function every time you need to clear suggestions.
-  // onSuggestionsClearRequested = () => {
-  //   this.setState({
-  //     suggestions: []
-  //   });
-  // };
-
-
-
-  // componentDidMount() {
-  //   fetch('http://localhost:8080/users')
-  //     .then(res => res.json())
-  //     .then(users => {
-  //       //this.setState({ users });
-  //       console.log(users);
-  //     })
-  //     .then(data => console.log(data));
-
-  // fetch('http://localhost:8080/fe')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     //window.location = data.redirect;
-  //     console.log(data);
-  //   });
-  // }
   componentDidMount() {
-    // axios.get('http://localhost:8080/users')
-    //   .then(res => {
-    //     this.setState({
-    //       user: res.data
-    //     })
-    //   }).then(() => setTimeout(() => { console.log(this.state.user) }, 3000))
+  // OAuth: Added function for Twitter users
+    axios.get('http://localhost:8080/auth/user').then(response => {
+      console.log('axios response', response);
+      if (response.data.user) {
+        console.log('if statement');
+        // We found a twitter user in the server session
+        let twitterUser = {
+          twitterId: response.data.user.twitterId,
+          displayName: response.data.user.displayName
+        }
+        this.setState({ twitterUser })
+      } else {
+        console.log('else statement');
+        // We did not find a user in the server session
+        this.setState({ user: null })
+      }
+    })
+
+    // fetch('http://localhost:8080/')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log('data from twitter', data);
+    //     if(data && data.redirect){
+    //       fetch(data.redirect)
+    //       .then(twitterResults => {
+    //         console.log("user info\n", twitterResults);
+    //         this.setState({ userName: twitterResults.user.screen_name })
+    //       })
+    //     }
+    //   });
+
   }
+
+
+  // onSuccess = (response) => {
+  //   console.log('success');
+  //   const token = response.headers.get('x-auth-token');
+  //   response.json().then(user => {
+  //     if (token) {
+  //       this.setState({isAuthenticated: true, user: user, token: token});
+  //     }
+  //   });
+  // };
+
+  // onFailed = (error) => {
+  //   console.log('fail');
+  //   alert(error);
+  // };
+
+  // logout = () => {
+  //   this.setState({isAuthenticated: false, token: '', user: null})
+  // };
+
   render() {
-    // const { value, suggestions } = this.state;
-
-    // // Autosuggest will pass through all these props to the input.
-    // const inputProps = {
-    //   placeholder: 'Type a programming language',
-    //   value,
-    //   onChange: this.onChange
-    // };
-
-    // // Finally, render it
-
-    let newUser = {
-      accessToken: 'String2',
-		accessTokenSecret: 'String2',
-		twitterId: 'String2',
-		reputation: 2,
-    subscriptions: ['userId2', 'userId5', 'userId1'],
-    writtenTweets: [
-      {
-      body: 'bork bork bork',
-      categories: ['love', 'instagood', 'photooftheday', 'fashion', 'beautiful', 'happy', 'cute', 'tbt', 'like4like', 'followme', 'picoftheday', 'follow', 'me', 'selfie', 'summer', 'art', 'instadaily', 'friends', 'repost', 'nature', 'girl', 'fun', 'style', 'smile', 'food', 'instalike', 'likeforlike', 'family', 'travel', 'fitness', 'igers', 'tagsforlikes', 'follow4follow', 'nofilter', 'life', 'beauty', 'amazing', 'instamood', 'instagram', 'photography', 'vscocam', 'sun', 'photo', 'music', 'beach', 'followforfollow']
-    },
-    {
-      body: 'doge luvs 2 bork',
-      categories: ['bestoftheday', 'sky', 'ootd', 'sunset', 'dog', 'vsco', 'l4l', 'makeup', 'f4f', 'foodporn', 'hair', 'pretty', 'swag', 'cat', 'model', 'motivation', 'girls', 'baby', 'party', 'cool', 'lol', 'gym', 'design', 'instapic', 'funny', 'healthy', 'night', 'tflers', 'yummy']
-    },
-    {
-      body: 'doge is bae',
-      categories: ['flowers', 'lifestyle', 'hot', 'instafood', 'wedding', 'fit', 'handmade', 'black', 'pink', 'blue', 'work', 'workout', 'blackandwhite', 'drawing', 'inspiration', 'home', 'holiday', 'christmas', 'nyc', 'london', 'sea', 'instacool', 'goodmorning', 'iphoneonly']
-    },],
-    purchasedTweet: [{
-      creator: 'userId223',
-      body: 'This is a tweet',
-      categories: ['love', 'instagood', 'photooftheday', 'fashion', 'beautiful', 'happy', 'cute', 'tbt', 'like4like', 'followme', 'picoftheday', 'follow', 'me', 'selfie', 'summer', 'art', 'instadaily', 'friends', 'repost', 'nature', 'girl', 'fun', 'style', 'smile', 'food', 'instalike', 'likeforlike', 'family', 'travel', 'fitness', 'igers', 'tagsforlikes', 'follow4follow', 'nofilter', 'life', 'beauty', 'amazing', 'instamood', 'instagram', 'photography', 'vscocam', 'sun', 'photo', 'music', 'beach', 'followforfollow']
-    },
-    {
-      creator: 'userId21231',
-      body: 'Here is another tweet',
-      categories: ['bestoftheday', 'sky', 'ootd', 'sunset', 'dog', 'vsco', 'l4l', 'makeup', 'f4f', 'foodporn', 'hair', 'pretty', 'swag', 'cat', 'model', 'motivation', 'girls', 'baby', 'party', 'cool', 'lol', 'gym', 'design', 'instapic', 'funny', 'healthy', 'night', 'tflers', 'yummy']
-    },
-    {
-      creator: 'userId123',
-      body: 'this is afunny tweet ahahahahah',
-      categories: ['flowers', 'lifestyle', 'hot', 'instafood', 'wedding', 'fit', 'handmade', 'black', 'pink', 'blue', 'work', 'workout', 'blackandwhite', 'drawing', 'inspiration', 'home', 'holiday', 'christmas', 'nyc', 'london', 'sea', 'instacool', 'goodmorning', 'iphoneonly']
-    },]
-    
-    }
 
     return (
       <div>
@@ -181,14 +85,6 @@ class App extends Component {
           <Route exact path='/' component={(props) => <Home />} />
           <Route path='/profile' component={(props) => <Profile user={newUser} />} />
         </Switch>
-        {/*<Autosuggest
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          inputProps={inputProps}
-        />*/}
       </div>
     );
   }

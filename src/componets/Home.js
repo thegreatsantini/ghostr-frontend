@@ -52,9 +52,13 @@ class Home extends Component {
                         </ListGroup>
                     </div>
                     <hr />
-                    <div>
+                    <div className='right'>
                         <Link to='/profile'><Button color="primary">Log In</Button></Link>
-                        <Button color="primary"><a href='http://localhost:8080/sessions/connect'>Twitter</a></Button> 
+
+                        <Button color="primary"><a href='http://localhost:8080/sessions/connect'>Twitter</a></Button>
+                        <a href='http://localhost:8080/auth/login'>Twitter</a>
+                        <Search />
+
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
-import '../App.css'
+
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value, suggestionList) => {
@@ -57,7 +57,6 @@ class Search extends Component {
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
   onSuggestionsFetchRequested = ({ value }) => {
-    //console.log(getSuggestions(value));
     this.setState({
       suggestions: getSuggestions(value, this.state.suggestionList)
     });
