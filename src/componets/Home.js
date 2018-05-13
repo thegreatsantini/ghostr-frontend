@@ -59,7 +59,6 @@ class Home extends Component {
                         <Button color="primary"><a href='http://localhost:8080/sessions/connect'>Twitter</a></Button>
                         <a href='http://localhost:8080/auth/login'>Twitter</a>
                         <Search />
-
                     </div>
                 </div>
             </div>
