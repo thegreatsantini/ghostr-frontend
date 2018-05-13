@@ -8,6 +8,7 @@ import {
     FormControl
 } from 'react-bootstrap'
 import Search from '../Search'
+import '../../Search.css'
 
 class Header extends Component {
     render() {
@@ -33,14 +34,15 @@ class Header extends Component {
                     <Navbar.Form pullRight>
                         <FormGroup>
                             <FormControl type="text" placeholder="Search" />
-                            <Search
-                                suggestions={this.props.suggestions}
-                                onSuggestionsFetchRequested={this.props.onSuggestionsFetchRequested}
-                                onSuggestionsClearRequested={this.props.onSuggestionsClearRequested}
-                                getSuggestionValue={this.props.getSuggestionValue}
-                                renderSuggestion={this.props.renderSuggestion}
-                                inputProps={this.props.inputProps}
-                            />
+                                <Search
+                                    className='customStyle'
+                                    suggestions={this.props.suggestions}
+                                    onSuggestionsFetchRequested={this.props.onSuggestionsFetchRequested}
+                                    onSuggestionsClearRequested={this.props.onSuggestionsClearRequested}
+                                    getSuggestionValue={this.props.getSuggestionValue}
+                                    renderSuggestion={this.props.renderSuggestion}
+                                    inputProps={this.props.inputProps}
+                                />
                         </FormGroup>{' '}
                         <Button type="submit">Submit</Button>
                     </Navbar.Form>

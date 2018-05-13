@@ -9,6 +9,7 @@ import {
     ListGroupItem,
 } from 'reactstrap'
 import '../Home.css'
+import Search from './Search'
 
 class Home extends Component {
     constructor(props) {

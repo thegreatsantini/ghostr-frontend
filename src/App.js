@@ -76,14 +76,13 @@ class App extends Component {
   // logout = () => {
   //   this.setState({isAuthenticated: false, token: '', user: null})
   // };
-
   render() {
-
+    
     return (
       <div>
         <Switch>
           <Route exact path='/' component={(props) => <Home />} />
-          <Route path='/profile' component={(props) => <Profile user={newUser} />} />
+          <Route path='/profile' component={(props) => <Profile user={this.state.user} />} />
         </Switch>
       </div>
     );
