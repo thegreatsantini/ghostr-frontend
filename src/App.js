@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Home from './componets/Home'
 import Profile from './componets/Profile'
+import Stats from './componets/Stats'
 import './App.css';
 
 import axios from 'axios';

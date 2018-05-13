@@ -30,7 +30,7 @@ class Profile extends Component {
                     <Header />
                     <div className="content">
                         <Route path="/tweets" component={Tweets} />
-                        {/* <Route path="/stats" component={ (props) =>  <Stats user={this.props.user} />} /> */}
+                        <Route path="/stats" component={ (props) =>  <Stats user={this.props.user} />} />
                         <Route path='/user' component={(props) => <User user={this.props.user} />} />
                     </div>
                 </div>
