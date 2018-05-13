@@ -1,0 +1,5 @@
+.searchBar {
+  display: none!important;
+  border: 2px solid black!important;
+  opacity: 0!important;
+}
