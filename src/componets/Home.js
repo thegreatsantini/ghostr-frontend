@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {
-    Collapse,
-    Button,
-    CardBody,
-    Card,
-    ListGroup,
-    ListGroupItem,
-} from 'reactstrap'
+    Collapsible,
+    CollapsibleItem,
+    Button
+} from 'react-materialize'
 import '../Home.css'
+import Search from './Search'
 
 class Home extends Component {
     constructor(props) {
@@ -28,37 +26,20 @@ class Home extends Component {
                 <div className='container'>
                     <div className='left'>
                         <Link to='/'><h1>InkyTweet</h1></Link>
-                        <ListGroup>
-                            <ListGroupItem onClick={this.toggle}>
-                                get paid to write
-                            <Collapse  isOpen={this.state.collapse}>
-                                    <Card>
-                                        <CardBody>
-                                            Build your reputation by writing good content
-                                    </CardBody>
-                                    </Card>
-                                </Collapse>
-                            </ListGroupItem>
-                            <ListGroupItem onClick={this.toggle}>
-                                share your ideas
-                                <Collapse isOpen={this.state.collapse}>
-                                    <Card>
-                                        <CardBody>
-                                            Make an impact without a large twitter following
-                                        </CardBody>
-                                    </Card>
-                                </Collapse>
-                            </ListGroupItem>
-                        </ListGroup>
+                    <Collapsible accordion defaultActiveKey={1}>
+                        <CollapsibleItem header='Get paid to write' >
+                            increase your repuation to get more money
+                    </CollapsibleItem>
+                        <CollapsibleItem header='get rewarded for your creativity' >
+                            Share your ideas without a large following
+                    </CollapsibleItem>
+                    </Collapsible>
                     </div>
                     <hr />
                     <div className='right'>
-                        <Link to='/profile'><Button color="primary">Log In</Button></Link>
-
-                        <Button color="primary"><a href='http://localhost:8080/sessions/connect'>Twitter</a></Button>
+                        <Button waves='light' node='a' href='/profile'>Go to home</Button>
+                        <Link to='http://localhost:8080/sessions/connect'>Twitter</Link>
                         <a href='http://localhost:8080/auth/login'>Twitter</a>
-                        <Search />
-
                     </div>
                 </div>
             </div>

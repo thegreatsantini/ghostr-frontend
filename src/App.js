@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Home from './componets/Home'
 import Profile from './componets/Profile'
+import Stats from './componets/Stats'
 import './App.css';
 
 import axios from 'axios';
@@ -76,14 +77,13 @@ class App extends Component {
   // logout = () => {
   //   this.setState({isAuthenticated: false, token: '', user: null})
   // };
-
   render() {
-
+    
     return (
       <div>
         <Switch>
           <Route exact path='/' component={(props) => <Home />} />
-          <Route path='/profile' component={(props) => <Profile user={newUser} />} />
+          <Route path='/profile' component={(props) => <Profile user={this.state.user} />} />
         </Switch>
       </div>
     );
