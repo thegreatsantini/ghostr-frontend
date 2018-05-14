@@ -7,26 +7,23 @@ import {
 
 class PurchasedTweets extends Component {
     render() {
-
-
-        let purchasedTweets = this.props.purchasedTweets.map((tweet, i) => {
-            return (
-                <Card key={ i } header={<CardTitle reveal waves='light' />}
-                    title={ tweet }
-                    reveal={<p>Here is some more information about this product that is only revealed once clicked on.</p>}>
-                    <p><a href="#">This is a link</a></p>
-                </Card>
-            )
-        })
-
+        let purchasedTweets = <div>No purchased tweets</div>;
+        if (this.props.purchasedTweets) {
+            purchasedTweets = this.props.purchasedTweets.map((tweet, i) => {
+                return (
+                    <Card key={ i } header={<CardTitle reveal waves='light' />}
+                          title={ tweet }
+                          reveal={<p>Here is some more information about this product that is only revealed once clicked on.</p>}>
+                        <p><a href="#">This is a link</a></p>
+                    </Card>
+                )
+            })
+        }
         return (
             <div>
-                <Col
-                    s={4}
-                >
+                <Col s={4}>
                     {purchasedTweets}
                 </Col>
-
             </div>
         );
     }
