@@ -8,17 +8,6 @@ import {
 import '../Home.css'
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            collapse: false
-        };
-    }
-
-    toggle = () => {
-        this.setState({ collapse: !this.state.collapse });
-    }
-
     render() {
         return (
             <div>

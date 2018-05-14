@@ -31,7 +31,6 @@ class App extends Component {
   componentDidMount() {
     // OAuth: Added function for Twitter users
     axios.get('http://localhost:8080/users/jiffy').then(response => {
-      console.log(response.data.reputation)
       let newReputation = this.state.user.reputation + response.data.reputation;
       this.setState(
         this.state.user = {
@@ -39,9 +38,9 @@ class App extends Component {
         displayName: response.data.displayName,
         reputation: newReputation,
         purchasedTweets: response.data.purchasedTweets,
-        subscriptions: response.data.purchasedTweets,
+        subscriptions: response.data.subscriptions,
         writtenTweets:response.data.writtenTweets
-      }, console.log(this.state.user))
+      })
     })
   }
   
