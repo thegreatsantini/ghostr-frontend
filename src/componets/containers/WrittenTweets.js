@@ -20,7 +20,6 @@ class WrittenTweets extends Component {
                 <Col s={4}>
                     {writtenTweets}
                 </Col>
-
             </div>
         );
     }
