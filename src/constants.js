@@ -1,0 +1,1 @@
+module.exports.SERVER_URL='https://inkytweet.herokuapp.com';

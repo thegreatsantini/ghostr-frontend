@@ -1,8 +1,8 @@
+
 body {
-    background-color: #FFCC00;
-    padding: 20px;
+    /* background-color: #FFCC00; */
     margin: 0;
-}
+} 
 h1, h2, p, ul, li {
     font-family: sans-serif;
 }
@@ -33,6 +33,6 @@ ul.header li a {
 .content li {
     margin-bottom: 10px;
 }
-.active {
+/* .active {
     background-color: #0099FF;
-}
+} */

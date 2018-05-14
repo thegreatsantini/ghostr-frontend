@@ -1,35 +1,29 @@
 import React, { Component } from "react";
+import { Row, Col } from 'react-materialize';
 import {
     Route,
-    NavLink,
-    HashRouter
+    HashRouter,
 } from "react-router-dom";
-import Tweets from './Tweets'
-import Stats from './Stats'
-import Home from './Home'
+import Header from './partials/Header'
+// import User from './User'
 import '../Profile.css'
+import Stats from './Stats';
+import WrittenTweets from './containers/WrittenTweets';
+import PurchasedTweets from './containers/PurchasedTweets';
 
 
 class Profile extends Component {
-    constructor() {
-        super(
-
-        )
-    }
-
-
     render() {
         return (
             <HashRouter>
                 <div>
-                    <h1>Simple SPA</h1>
-                    <ul className="header">
-                        <li><NavLink to="/tweets">Tweets</NavLink></li>
-                        <li><NavLink to="/stats">Stats</NavLink></li>
-                    </ul>
+                    <Header />
                     <div className="content">
-                        <Route path="/tweets" component={Tweets} />
-                        <Route path="/stats" component={Stats} />
+                        <Row>
+                            <Col s={2} > <Stats user={this.props.user} /></Col>
+                            <WrittenTweets user={this.props.user} />
+                            <PurchasedTweets user={this.props.user} />
+                        </Row>
                     </div>
                 </div>
             </HashRouter>
