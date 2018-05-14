@@ -6,7 +6,7 @@ import {
     Button
 } from 'react-materialize'
 import '../Home.css'
-import { SERVER_URL } from './constants.js';
+import { SERVER_URL } from '../constants.js';
 
 class Home extends Component {
     render() {
