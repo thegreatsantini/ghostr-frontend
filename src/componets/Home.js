@@ -37,8 +37,7 @@ class Home extends Component {
                     </div>
                     <hr />
                     <div className='right'>
-                        <Button waves='light' node='a' href='/profile'>Go to home</Button>
-                        <Link to='http://localhost:8080/sessions/connect'>Twitter</Link>
+                        <Link to='/profile'><Button color="primary">Log In</Button></Link>
                         <a href='http://localhost:8080/auth/login'>Twitter</a>
                     </div>
                 </div>
