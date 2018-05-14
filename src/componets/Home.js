@@ -6,6 +6,7 @@ import {
     Button
 } from 'react-materialize'
 import '../Home.css'
+import { SERVER_URL } from './constants.js';
 
 class Home extends Component {
     render() {
@@ -26,7 +27,7 @@ class Home extends Component {
                     <hr />
                     <div className='right'>
                         <Button waves='light' node='a' href='/profile'>Go to home</Button>
-                        <Button waves='light' node='a' href='http://localhost:8080/auth/login'>Login With Twitter</Button>
+                        <Button waves='light' node='a' href={SERVER_URL + '/auth/login'}>Login With Twitter</Button>
                     </div>
                 </div>
             </div>
