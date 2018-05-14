@@ -6,12 +6,14 @@ import {
 
 class Subscriptions extends Component {
     render() {
-        let subsList = this.props.subs.map((sub, i) => {
-            return (
-                
+        let subsList = <div>No subs</div>;
+        if (this.props.subs) {
+            subsList = this.props.subs.map((sub, i) => {
+                return (
                     <CollectionItem key={i}> {sub}  </CollectionItem>
-        )
-        })
+                )
+            })
+        }
         return (
             <div>
                 <Collection header='Subscriptions'>
