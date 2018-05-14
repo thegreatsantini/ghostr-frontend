@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Home from './componets/Home'
 import Profile from './componets/Profile'
+import Stats from './componets/Stats'
 import './App.css';
 
 
@@ -60,6 +61,7 @@ class App extends Component {
           Someone named {this.state.user.displayName} is logged in!
         </div>)
     }
+
     return (
       <div>
         <div>
