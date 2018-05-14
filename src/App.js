@@ -6,6 +6,7 @@ import {
 import Home from './componets/Home'
 import Profile from './componets/Profile'
 import './App.css';
+import { SERVER_URL } from './constants.js';
 
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
 
   componentDidMount() {
   // OAuth: Added function for Twitter users
-     fetch('/auth/user', {
+     fetch(SERVER_URL + '/auth/user', {
       credentials: 'include',
       method: 'GET',
       headers: {
