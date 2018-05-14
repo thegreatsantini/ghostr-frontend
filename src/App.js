@@ -26,7 +26,7 @@ class App extends Component {
 
   componentDidMount() {
   // OAuth: Added function for Twitter users
-    axios.get('http://localhost:8080/auth/user').then(response => {
+    axios.get('http://localhost:8080/users/name2').then(response => {
       console.log('axios response', response);
       if (response.data.user) {
         console.log('if statement');

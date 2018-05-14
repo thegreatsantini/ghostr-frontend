@@ -3,11 +3,9 @@ import {
     Navbar,
     NavItem,
     Icon,
-    Input,
     Row,
     Autocomplete
 } from 'react-materialize'
-import { Link } from 'react-router-dom'
 import Search from '../Search'
 import '../../Search.css'
 
@@ -33,6 +31,7 @@ class Header extends Component {
                                 }
                             }
                         />
+                            <Search s={4} />
                     </Row>
                     <p className='searchBar'>hello i am a test</p>
             </div>

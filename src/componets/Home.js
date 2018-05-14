@@ -38,9 +38,9 @@ class Home extends Component {
                     <hr />
                     <div className='right'>
                         <Button waves='light' node='a' href='/profile'>Go to home</Button>
-                        <Link to='http://localhost:8080/sessions/connect'>Twitter</Link>
                         <a href='http://localhost:8080/auth/login'>Twitter</a>
                     </div>
+                    <a href="hello this is a new href" className="button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
             </div>
         );
