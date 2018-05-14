@@ -6,7 +6,6 @@ import {
     Button
 } from 'react-materialize'
 import '../Home.css'
-import Search from './Search'
 
 class Home extends Component {
     constructor(props) {
@@ -40,7 +39,6 @@ class Home extends Component {
                         <Button waves='light' node='a' href='/profile'>Go to home</Button>
                         <a href='http://localhost:8080/auth/login'>Twitter</a>
                     </div>
-                    <a href="hello this is a new href" className="button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
             </div>
         );
