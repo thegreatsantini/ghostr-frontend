@@ -13,19 +13,19 @@ class App extends Component {
     super(props);
     this.state = {
       user: {
-        twitterId: ''
-        ,displayName: ''
-        ,reputation: 0
+        twitterId:        ''
+        ,displayName:     ''
+        ,reputation:      0
         ,purchasedTweets: []
-        ,subscriptions: []
-        ,writtenTweets: []
+        ,subscriptions:   []
+        ,writtenTweets:   []
       }
     };
   }
 
   componentDidMount() {
   // OAuth: Added function for Twitter users
-     fetch('http://localhost:8080/auth/user', {
+     fetch('/auth/user', {
       credentials: 'include',
       method: 'GET',
       headers: {
