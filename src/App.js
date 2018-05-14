@@ -13,51 +13,38 @@ import axios from 'axios';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       // isAuthenticated: false, 
       // user: null, 
       // token: ''
-      twitterId: '',
-      displayName: '',
-      user: null
+      user: {
+        twitterId: '',
+        displayName: '',
+        reputation: 0,
+        purchasedTweets: [],
+        subscriptions: [],
+        writtenTweets: []
+      }
     };
   }
 
   componentDidMount() {
-  // OAuth: Added function for Twitter users
-    axios.get('http://localhost:8080/users/name2').then(response => {
-      console.log('axios response', response);
-      if (response.data.user) {
-        console.log('if statement');
-        // We found a twitter user in the server session
-        let twitterUser = {
-          twitterId: response.data.user.twitterId,
-          displayName: response.data.user.displayName
-        }
-        this.setState({ twitterUser })
-      } else {
-        console.log('else statement');
-        // We did not find a user in the server session
-        this.setState({ user: null })
-      }
+    // OAuth: Added function for Twitter users
+    axios.get('http://localhost:8080/users/jiffy').then(response => {
+      console.log(response.data.reputation)
+      let newReputation = this.state.user.reputation + response.data.reputation;
+      this.setState(
+        this.state.user = {
+        twitterId : response.data.twitterId,
+        displayName: response.data.displayName,
+        reputation: newReputation,
+        purchasedTweets: response.data.purchasedTweets,
+        subscriptions: response.data.purchasedTweets,
+        writtenTweets:response.data.writtenTweets
+      }, console.log(this.state.user))
     })
-
-    // fetch('http://localhost:8080/')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log('data from twitter', data);
-    //     if(data && data.redirect){
-    //       fetch(data.redirect)
-    //       .then(twitterResults => {
-    //         console.log("user info\n", twitterResults);
-    //         this.setState({ userName: twitterResults.user.screen_name })
-    //       })
-    //     }
-    //   });
-
   }
-
-
+  
   // onSuccess = (response) => {
   //   console.log('success');
   //   const token = response.headers.get('x-auth-token');
@@ -77,7 +64,7 @@ class App extends Component {
   //   this.setState({isAuthenticated: false, token: '', user: null})
   // };
   render() {
-    
+
     return (
       <div>
         <Switch>
