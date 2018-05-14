@@ -12,16 +12,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // isAuthenticated: false, 
-      // user: null, 
-      // token: ''
       user: {
-        twitterId: '',
-        displayName: '',
-        reputation: 0,
-        purchasedTweets: [],
-        subscriptions: [],
-        writtenTweets: []
+        twitterId: ''
+        ,displayName: ''
+        ,reputation: 0
+        ,purchasedTweets: []
+        ,subscriptions: []
+        ,writtenTweets: []
       }
     };
   }
@@ -41,39 +38,42 @@ class App extends Component {
      .then(response => {
       console.log('fetch response', response);
       if (response.user) {
-        console.log('if statement');
         // We found a twitter user in the server session
+        // console.log('user found. response:', response);
         let twitterUser = {
-          twitterId: response.user.twitterId,
-          displayName: response.user.displayName
+          twitterId:        response.user.twitterId
+          ,displayName:     response.user.displayName
+          ,reputation:      response.user.reputation
+          ,purchasedTweets: response.user.purchasedTweets
+          ,subscriptions:   response.user.subscriptions
+          ,writtenTweets:   response.user.writtenTweets
         }
         this.setState({ user: twitterUser });
-      } else {
-        console.log('else statement', response);
-        // We did not find a user in the server session
-        this.setState({ user: null })
-      }
+      } 
+      // else {
+      //   // console.log('no user found. response:', response);
+      //   // We did not find a user in the server session
+      //   this.setState({ user: {}} })
+      // }
     })
   }
 
   render() {
     console.log('rendering now. state is', this.state);
     let message = <div>No one is logged in!</div>;
-    if(this.state.user){
+    if(this.state.user.displayName !== ''){
       message = (
         <div>
           Someone named {this.state.user.displayName} is logged in!
         </div>)
     }
-
     return (
       <div>
         <div>
-          Is Someone Logged In?
           {message}
         </div>
         <Switch>
-          <Route exact path='/' component={(props) => <Home />} />
+          <Route exact path='/' component={(props) => <Home user={this.state.user} />} />
           <Route path='/profile' component={(props) => <Profile user={this.state.user} />} />
         </Switch>
       </div>
