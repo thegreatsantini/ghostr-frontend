@@ -5,20 +5,24 @@ import {
 } from "react-router-dom";
 import Home from './componets/Home'
 import Profile from './componets/Profile'
-import Stats from './componets/Stats'
 import './App.css';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       // isAuthenticated: false, 
       // user: null, 
       // token: ''
-      twitterId: '',
-      displayName: '',
-      user: null
+      user: {
+        twitterId: '',
+        displayName: '',
+        reputation: 0,
+        purchasedTweets: [],
+        subscriptions: [],
+        writtenTweets: []
+      }
     };
   }
 

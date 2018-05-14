@@ -6,20 +6,8 @@ import {
     Button
 } from 'react-materialize'
 import '../Home.css'
-import Search from './Search'
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            collapse: false
-        };
-    }
-
-    toggle = () => {
-        this.setState({ collapse: !this.state.collapse });
-    }
-
     render() {
         return (
             <div>
@@ -37,7 +25,7 @@ class Home extends Component {
                     </div>
                     <hr />
                     <div className='right'>
-                        <Link to='/profile'><Button color="primary">Log In</Button></Link>
+                        <Button waves='light' node='a' href='/profile'>Go to home</Button>
                         <a href='http://localhost:8080/auth/login'>Twitter</a>
                     </div>
                 </div>

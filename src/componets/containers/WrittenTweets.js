@@ -1,23 +1,34 @@
 import React, { Component } from "react";
 import {
-    Collection,
-    CollectionItem
+    Col,
+    Card
 } from 'react-materialize'
 
 class WrittenTweets extends Component {
+
+    componentDidMount = () => {
+        console.log('*********', this.props.writtenTweets)
+    }
+
     render() {
-        let subsList = this.props.subs.map((sub, i) => {
+
+
+        let writtenTweets = this.props.writtenTweets.map((tweet, i) => {
             return (
-                <div key={i}>
-                    <CollectionItem>{ sub } </CollectionItem>
-                </div>
+                <Card key={i} className='darken-1' textClassName='white-text' title={tweet} actions={[<a href='#'>This is a link</a>]}>
+
+                </Card>
             )
         })
+
         return (
             <div>
-                <Collection header='Subscriptions'>
-                    Written Tweets
-                </Collection>
+                <Col
+                    s={4}
+                >
+                    {writtenTweets}
+                </Col>
+
             </div>
         );
     }

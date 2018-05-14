@@ -79,9 +79,6 @@ class Search extends Component {
       onChange: this.onChange
     };
 
-    const searchStyle = {
-      
-    }
     // Finally, render it!
     return (
       <Autosuggest

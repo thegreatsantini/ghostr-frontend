@@ -11,19 +11,11 @@ import '../Profile.css'
 
 
 class Profile extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            user: []
-        }
-    }
-
+    
     componentDidMount = () => {
-        // console.log('passing some badA$$ props' , this.props.user)
     }
 
     render() {
-        console.log(this.props.user)
         return (
             <HashRouter>
                 <div>
