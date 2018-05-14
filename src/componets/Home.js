@@ -6,7 +6,7 @@ import {
     Button
 } from 'react-materialize'
 import '../Home.css'
-import { SERVER_URL } from './constants.js';
+const SERVER_URL = 'https://inkytweet.herokuapp.com';
 
 class Home extends Component {
     render() {

@@ -6,7 +6,7 @@ import {
 import Home from './componets/Home'
 import Profile from './componets/Profile'
 import './App.css';
-import { SERVER_URL } from './constants.js';
+const SERVER_URL = 'https://inkytweet.herokuapp.com';
 
 
 class App extends Component {
