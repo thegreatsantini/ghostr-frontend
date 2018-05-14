@@ -6,7 +6,7 @@ import {
 import Home from './componets/Home'
 import Profile from './componets/Profile'
 import './App.css';
-import { SERVER_URL } from '../constants.js';
+import { SERVER_URL } from './constants.js';
 
 
 class App extends Component {
