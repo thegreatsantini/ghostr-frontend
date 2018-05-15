@@ -3,6 +3,7 @@ import {
     Collection,
     CollectionItem
 } from 'react-materialize';
+import NewInkyTweetForm from './NewInkyTweetForm'
 
 class Stats extends Component {
     render() {
@@ -18,6 +19,7 @@ class Stats extends Component {
             <div>
                 <div>
                     <h3> {this.props.user.handle} </h3>
+                    <NewInkyTweetForm />
                     <h5> Reputation: {this.props.user.reputation} </h5>
                 </div>
                 <Collection header='Subscriptions'>
