@@ -3,7 +3,7 @@ import {
     Col,
     Card,
     CardTitle
-} from 'react-materialize'
+} from 'react-materialize';
 
 class PurchasedTweets extends Component {
     render() {

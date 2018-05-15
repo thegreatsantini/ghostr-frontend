@@ -4,8 +4,8 @@ import {
     Collapsible,
     CollapsibleItem,
     Button
-} from 'react-materialize'
-import '../Home.css'
+} from 'react-materialize';
+import '../Home.css';
 // const SERVER_URL = 'https://inkytweet.herokuapp.com';
 const SERVER_URL = 'http://localhost:8080';
 
