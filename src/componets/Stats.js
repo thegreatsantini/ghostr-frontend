@@ -17,8 +17,7 @@ class Stats extends Component {
         return (
             <div>
                 <div>
-                    <h3> {this.props.user.handle} </h3>
-                    <img src={this.props.user.pic} />
+                    <h3> {this.props.user.displayName} </h3>
                     <h5> Reputation: {this.props.user.reputation} </h5>
                 </div>
                 <Collection header='Subscriptions'>

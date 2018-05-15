@@ -5,6 +5,9 @@ import {
 } from "react-router-dom";
 import Home from './componets/Home';
 import Profile from './componets/Profile';
+import Browse from './componets/Browse';
+import User from './componets/User';
+import Users from './componets/Users';
 import './App.css';
 // const SERVER_URL = 'https://inkytweet.herokuapp.com';
 const SERVER_URL = 'http://localhost:8080';
@@ -69,9 +72,11 @@ class App extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path='/' component={(props) => <Home user={this.state.user} />} />
-          <Route path='/profile' component={(props) => <Profile user={this.state.user} />} />
-          <Route path='/browse' component={(props) => <Profile user={this.state.user} />} />
+          <Route exact path='/' component={() => <Home user={this.state.user} />} />
+          <Route path='/profile' component={() => <Profile user={this.state.user} />} />
+          <Route path='/users' component={() => <Users user={this.state.user} />} />
+          <Route path='/users/:id' component={() => <User user={this.state.user} />} />
+          <Route path='/browse' component={() => <Browse user={this.state.user} />} />
         </Switch>
       </div>
     );

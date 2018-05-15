@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import {
-    Col,
-    Card
-} from 'react-materialize';
+import { Col, Card } from 'react-materialize';
 
 class WrittenTweets extends Component {
     render() {
