@@ -11,15 +11,17 @@ import {
 
 class Header extends Component {
     render() {
+        let userName = 'User';
+        if (this.props.user.handle !== '') { userName = this.props.user.handle }
         return (
             <div>
                 <Navbar brand='InkyTweet' right>
                     <NavItem ><Icon>search</Icon></NavItem>
-                    <NavItem href='/profile#/tweets'>Tweets</NavItem>
-                    <NavItem href='/profile#/stats'>Stats</NavItem>
-                    <NavItem href='/profile#/user'>User</NavItem>
+                    <NavItem href='/browse'>Browse</NavItem>
+                    <NavItem href='/profile/stats'>Stats</NavItem>
+                    <NavItem href='/profile'>{userName}</NavItem>
                 </Navbar>
-                    <Row>
+                    {/* <Row>
                         <Autocomplete
                             s={4}
                             title='Tweets'
@@ -31,8 +33,8 @@ class Header extends Component {
                                 }
                             }
                         />
+                    </Row> */}
                             {/* <Search s={4} /> */}
-                    </Row>
             </div>
                 )
             }

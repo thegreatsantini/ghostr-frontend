@@ -18,7 +18,7 @@ class Stats extends Component {
         return (
             <div>
                 <div>
-                    <h3> {this.props.user.displayName} </h3>
+                    <h3> {this.props.user.handle} </h3>
                     <NewInkyTweetForm />
                     <h5> Reputation: {this.props.user.reputation} </h5>
                 </div>
