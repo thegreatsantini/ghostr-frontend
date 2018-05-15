@@ -7,14 +7,22 @@ import NewInkyTweetForm from './NewInkyTweetForm'
 
 class Stats extends Component {
     render() {
-        let subsList = <div>No subs</div>;
-        if (this.props.user.subscriptions !== []) {
-            subsList = this.props.user.subscriptions.map((sub, i) => {
-                return (
-                    <CollectionItem key={i}> {sub}  </CollectionItem>
-                )
-            });
-        }
+        // let subsList = <div>No subs</div>;
+        // if (this.props.user.subscriptions !== []) {
+        //     subsList = this.props.user.subscriptions.map((sub, i) => {
+        //         return (
+        //             <CollectionItem key={i}> {sub}  </CollectionItem>
+        //         )
+        //     });
+        // }
+
+        const subscriptionsList = [ '@officialjadensmith', '@weratedogs', '@fuckjerry' ]
+       let subsList = subscriptionsList.map( (sub, i) => {
+            return (
+                <CollectionItem key={i}> {sub}  </CollectionItem>
+            )
+        })
+
         return (
             <div>
                 <div>
@@ -24,6 +32,7 @@ class Stats extends Component {
                 </div>
                 <Collection header='Subscriptions'>
                     { subsList }
+                    
                 </Collection>
             </div>
         );
