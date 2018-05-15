@@ -20,7 +20,7 @@ class Profile extends Component {
                     <Header />
                     <div className="content">
                         <Row>
-                            <Col s={2} > <Stats user={this.props.user} /></Col>
+                            <Col s={4} > <Stats user={this.props.user} /></Col>
                             <WrittenTweets user={this.props.user} />
                             <PurchasedTweets user={this.props.user} />
                         </Row>
