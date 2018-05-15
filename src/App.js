@@ -3,8 +3,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Home from './componets/Home'
-import Profile from './componets/Profile'
+import Home from './componets/Home';
+import Profile from './componets/Profile';
 import './App.css';
 // const SERVER_URL = 'https://inkytweet.herokuapp.com';
 const SERVER_URL = 'http://localhost:8080';
@@ -16,7 +16,8 @@ class App extends Component {
     this.state = {
       user: {
         twitterId:        ''
-        ,displayName:     ''
+        ,handle:          ''
+        ,pic:             ''
         ,reputation:      0
         ,purchasedTweets: []
         ,subscriptions:   []
@@ -44,29 +45,25 @@ class App extends Component {
         // console.log('user found. response:', response);
         let twitterUser = {
           twitterId:        response.user.twitterId
-          ,displayName:     response.user.displayName
+          ,handle:          response.user.displayName //handle
+          // ,pic:             response.user.pic
           ,reputation:      response.user.reputation
           ,purchasedTweets: response.user.purchasedTweets
           ,subscriptions:   response.user.subscriptions
           ,writtenTweets:   response.user.writtenTweets
         }
         this.setState({ user: twitterUser });
-      } 
-      // else {
-      //   // console.log('no user found. response:', response);
-      //   // We did not find a user in the server session
-      //   this.setState({ user: {}} })
-      // }
-    })
+      }
+    });
   }
 
   render() {
     console.log('rendering now. state is', this.state);
     let message = <div>No one is logged in!</div>;
-    if(this.state.user.displayName !== ''){
+    if(this.state.user.handle !== ''){
       message = (
         <div>
-          Someone named {this.state.user.displayName} is logged in!
+          Someone named {this.state.user.handle} is logged in!
         </div>)
     }
     return (

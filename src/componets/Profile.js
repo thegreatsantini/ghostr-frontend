@@ -4,9 +4,9 @@ import {
     Route,
     HashRouter,
 } from "react-router-dom";
-import Header from './partials/Header'
+import Header from './partials/Header';
 // import User from './User'
-import '../Profile.css'
+import '../Profile.css';
 import Stats from './Stats';
 import WrittenTweets from './containers/WrittenTweets';
 import PurchasedTweets from './containers/PurchasedTweets';

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
     Col,
     Card
-} from 'react-materialize'
+} from 'react-materialize';
 
 class WrittenTweets extends Component {
     render() {
