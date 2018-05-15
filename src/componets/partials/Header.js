@@ -3,8 +3,6 @@ import {
     Navbar,
     NavItem,
     Icon,
-    Row,
-    Autocomplete
 } from 'react-materialize'
 // import Search from '../Search'
 // import '../../Search.css'

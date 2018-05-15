@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col } from 'react-materialize';
 import {
-    Route,
     HashRouter,
 } from "react-router-dom";
 import Header from './partials/Header';
@@ -20,7 +19,9 @@ class Profile extends Component {
                     <Header user={this.props.user} />
                     <div className="content">
                         <Row>
-                            <Col s={4} > <Stats user={this.props.user} /></Col>
+                            <Col s={4} > <Stats 
+                            user={this.props.user} 
+                            /></Col>
                             <WrittenTweets user={this.props.user} />
                             <PurchasedTweets user={this.props.user} />
                         </Row>
