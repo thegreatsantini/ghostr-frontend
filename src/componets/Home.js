@@ -1,58 +1,34 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
-    Collapse,
-    Button,
-    CardBody,
-    Card,
-    ListGroup,
-    ListGroupItem,
-} from 'reactstrap'
+    Collapsible,
+    CollapsibleItem,
+    Button
+} from 'react-materialize'
 import '../Home.css'
+// const SERVER_URL = 'https://inkytweet.herokuapp.com';
+const SERVER_URL = 'http://localhost:8080';
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            collapse: false
-        };
-    }
-
-    toggle = () => {
-        this.setState({ collapse: !this.state.collapse });
-    }
-
     render() {
         return (
             <div>
                 <div className='container'>
                     <div className='left'>
-                        <h1>InkyTweet</h1>
-                        <ListGroup>
-                            <ListGroupItem onClick={this.toggle}>
-                                get paid to write
-                            <Collapse  isOpen={this.state.collapse}>
-                                    <Card>
-                                        <CardBody>
-                                            Build your reputation by writing good content
-                                    </CardBody>
-                                    </Card>
-                                </Collapse>
-                            </ListGroupItem>
-                            <ListGroupItem onClick={this.toggle}>
-                                share your ideas
-                                <Collapse isOpen={this.state.collapse}>
-                                    <Card>
-                                        <CardBody>
-                                            Make an impact without a large twitter following
-                                        </CardBody>
-                                    </Card>
-                                </Collapse>
-                            </ListGroupItem>
-                        </ListGroup>
+                        <Link to='/'><h1>InkyTweet</h1></Link>
+                    <Collapsible accordion>
+                        <CollapsibleItem header='Get paid to write' >
+                            increase your repuation to get more money
+                    </CollapsibleItem>
+                        <CollapsibleItem header='get rewarded for your creativity' >
+                            Share your ideas without a large following
+                    </CollapsibleItem>
+                    </Collapsible>
                     </div>
                     <hr />
-                    <div>
-                    <Button color="primary">Log In</Button>
+                    <div className='right'>
+                        <Button waves='light' node='a' href='/profile'>Go to home</Button>
+                        <Button waves='light' node='a' href={SERVER_URL + '/auth/login'}>Login With Twitter</Button>
                     </div>
                 </div>
             </div>
