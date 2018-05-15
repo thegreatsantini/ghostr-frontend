@@ -75,7 +75,6 @@ class App extends Component {
           <Route exact path='/' component={() => <Home user={this.state.user} />} />
           <Route path='/profile' component={() => <Profile user={this.state.user} />} />
           <Route path='/users' component={() => <Users user={this.state.user} />} />
-          <Route path='/users/:id' component={() => <User user={this.state.user} />} />
           <Route path='/browse' component={() => <Browse user={this.state.user} />} />
         </Switch>
       </div>

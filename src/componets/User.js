@@ -25,7 +25,6 @@ class User extends Component {
                         <Row>
                             <Col s={2} > <Stats user={this.props.user} /></Col>
                             <WrittenTweets user={this.props.user} />
-                            <PurchasedTweets user={this.props.user} />
                         </Row>
                     </div>
                 </div>

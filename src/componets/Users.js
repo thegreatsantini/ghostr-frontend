@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Row, Col, Card } from 'react-materialize';
+import { Row, Col, Card, Button } from 'react-materialize';
+import ViewTweets from './ViewTweets';
+import NewInkyTweetForm from './NewInkyTweetForm';
 // const SERVER_URL = 'https://inkytweet.herokuapp.com';
 const SERVER_URL = 'http://localhost:8080';
 
@@ -25,7 +27,8 @@ class Users extends Component {
             allUsers = this.state.users.map((user, i) => {
                 return (
                     <Col s={4} m={3}>
-                        <Card key={i} className='darken-1' textClassName='white-text' title={'Rep: ' + user.reputation} actions={[<a href={'/users/' + user.handle}>{user.handle}</a>]}>
+                        <Card key={i} className='darken-1' textClassName='white-text' title={user.handle}>
+                            <ViewTweets userHandle={user.handle}/>
                         </Card>
                     </Col>
                 )

@@ -33,7 +33,7 @@ class NewInkyTweetForm extends Component {
             <div>
                 <Modal
                     header='New InkyTweet'
-                    trigger={<Button>MODAL</Button>}>
+                    trigger={<Button>Tweet</Button>}>
                     <Row>
                         <Input type='textarea' s={12} onChange={(e) => this.onInputChange(e)} />
                         <Button waves='light' onClick={this.handleSubmit} > Tweet </Button>
