@@ -6,6 +6,9 @@ import {
 import NewInkyTweetForm from './NewInkyTweetForm'
 
 class Stats extends Component {
+    // constructor(props) {
+    //     super(props)
+    // }
     render() {
         // let subsList = <div>No subs</div>;
         // if (this.props.user.subscriptions !== []) {

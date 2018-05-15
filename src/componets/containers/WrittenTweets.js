@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Card, CardTitle } from 'react-materialize';
-
+const SERVER_URL = 'http://localhost:8080';
 
 
 
@@ -8,11 +8,14 @@ class WrittenTweets extends Component {
     constructor() {
         super()
         this.state = {
-            writtenTweets: ['The worst part about being a giraffe is having a lot of time to think about your mistakes when you\'re sinking into quicksand.', 'Alex Trebek: (into mirror) Who is alex trebek', 'Avoid unwanted pregnancies by using the "pull out" method where you pull out an acoustic guitar at a party & no one will have sex with you.', 'The best thing about trying to name a baby is realizing how many people you hate', '@parisreview So is Paris any good or not', 'If I was stuck on a desert island with only one record, I would want it to be the record for being able to swim the farthest.', 'What do you mean I didn’t win I ate more wet t-shirts than anyone else'],
-            testTweets: [1, 2, 3, 4, 5, 6, 7]
+            writtenTweets: ['The worst part about being a giraffe is having a lot of time to think about your mistakes when you\'re sinking into quicksand.', 'Alex Trebek: (into mirror) Who is alex trebek', 'Avoid unwanted pregnancies by using the "pull out" method where you pull out an acoustic guitar at a party & no one will have sex with you.', 'The best thing about trying to name a baby is realizing how many people you hate', '@parisreview So is Paris any good or not', 'If I was stuck on a desert island with only one record, I would want it to be the record for being able to swim the farthest.', 'What do you mean I didn’t win I ate more wet t-shirts than anyone else']
 
         }
     }
+
+    // componentDidMount() {
+        // this.props.updateList();
+    // }
 
     handleTweetRemove = (e) => {
         const tweetToRemove = this.state.writtenTweets

@@ -10,8 +10,8 @@ import axios from 'axios';
 const SERVER_URL = 'http://localhost:8080';
 
 class NewInkyTweetForm extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             inkyTweet: '',
         }
@@ -25,6 +25,8 @@ class NewInkyTweetForm extends Component {
 
     handleSubmit = () => {
         axios.post(SERVER_URL + '/profile', this.state.inkyTweet)
+        // this.props.updateList();
+
     }
 
 
