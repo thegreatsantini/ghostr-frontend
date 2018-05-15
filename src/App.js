@@ -45,8 +45,8 @@ class App extends Component {
         // console.log('user found. response:', response);
         let twitterUser = {
           twitterId:        response.user.twitterId
-          ,handle:          response.user.displayName //handle
-          // ,pic:             response.user.pic
+          ,handle:          response.user.handle
+          ,pic:             response.user.pic
           ,reputation:      response.user.reputation
           ,purchasedTweets: response.user.purchasedTweets
           ,subscriptions:   response.user.subscriptions
@@ -58,22 +58,20 @@ class App extends Component {
   }
 
   render() {
-    console.log('rendering now. state is', this.state);
-    let message = <div>No one is logged in!</div>;
-    if(this.state.user.handle !== ''){
-      message = (
-        <div>
-          Someone named {this.state.user.handle} is logged in!
-        </div>)
-    }
+    // console.log('rendering now. state is', this.state);
+    // let message = <div>No one is logged in!</div>;
+    // if(this.state.user.handle !== ''){
+    //   message = (
+    //     <div>
+    //       Someone named {this.state.user.handle} is logged in!
+    //     </div>)
+    // }
     return (
       <div>
-        <div>
-          {message}
-        </div>
         <Switch>
           <Route exact path='/' component={(props) => <Home user={this.state.user} />} />
           <Route path='/profile' component={(props) => <Profile user={this.state.user} />} />
+          <Route path='/browse' component={(props) => <Profile user={this.state.user} />} />
         </Switch>
       </div>
     );

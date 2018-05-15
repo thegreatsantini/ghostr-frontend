@@ -17,7 +17,7 @@ class Profile extends Component {
         return (
             <HashRouter>
                 <div>
-                    <Header />
+                    <Header user={this.props.user} />
                     <div className="content">
                         <Row>
                             <Col s={2} > <Stats user={this.props.user} /></Col>
