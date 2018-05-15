@@ -3,13 +3,13 @@ import {
     Col,
     Card,
     CardTitle
-} from 'react-materialize'
+} from 'react-materialize';
 
 class PurchasedTweets extends Component {
     render() {
         let purchasedTweets = <div>No purchased tweets</div>;
-        if (this.props.purchasedTweets) {
-            purchasedTweets = this.props.purchasedTweets.map((tweet, i) => {
+        if (this.props.user.purchasedTweets !== []) {
+            purchasedTweets = this.props.user.purchasedTweets.map((tweet, i) => {
                 return (
                     <Card key={ i } header={<CardTitle reveal waves='light' />}
                           title={ tweet }

@@ -3,31 +3,24 @@ import {
     Collection,
     CollectionItem
 } from 'react-materialize';
+import NewInkyTweetForm from './NewInkyTweetForm'
 
 class Stats extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            subscriptions: [1, 2, 3]
-            // subscriptions: this.props.user.subscriptions
-        }
-    }
     render() {
         let subsList = <div>No subs</div>;
-        if (this.state.subscriptions) {
-            subsList = this.state.subscriptions.map((sub, i) => {
+        if (this.props.user.subscriptions !== []) {
+            subsList = this.props.user.subscriptions.map((sub, i) => {
                 return (
                     <CollectionItem key={i}> {sub}  </CollectionItem>
                 )
             });
         }
-        let rep = 0;
-        if (this.props.user.reputation) { rep = this.props.user.reputation }
         return (
             <div>
                 <div>
-                    <h3> {this.props.user.displayName} </h3>
-                    <h5> Reputation: {rep} </h5>
+                    <h3> {this.props.user.handle} </h3>
+                    <NewInkyTweetForm />
+                    <h5> Reputation: {this.props.user.reputation} </h5>
                 </div>
                 <Collection header='Subscriptions'>
                     { subsList }

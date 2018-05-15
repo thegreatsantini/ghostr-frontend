@@ -4,8 +4,10 @@ import {
     Collapsible,
     CollapsibleItem,
     Button
-} from 'react-materialize'
-import '../Home.css'
+} from 'react-materialize';
+import '../Home.css';
+// const SERVER_URL = 'https://inkytweet.herokuapp.com';
+const SERVER_URL = 'http://localhost:8080';
 
 class Home extends Component {
     render() {
@@ -26,7 +28,7 @@ class Home extends Component {
                     <hr />
                     <div className='right'>
                         <Button waves='light' node='a' href='/profile'>Go to home</Button>
-                        <Button waves='light' node='a' href='http://localhost:8080/auth/login'>Login With Twitter</Button>
+                        <Button waves='light' node='a' href={SERVER_URL + '/auth/login'}>Login With Twitter</Button>
                     </div>
                 </div>
             </div>
