@@ -6,7 +6,6 @@ import {
 import Home from './componets/Home';
 import Profile from './componets/Profile';
 import Browse from './componets/Browse';
-import User from './componets/User';
 import Users from './componets/Users';
 import './App.css';
 // const SERVER_URL = 'https://inkytweet.herokuapp.com';
@@ -29,8 +28,8 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-  // OAuth: Added function for Twitter users
+  updateUser = () => {
+     // OAuth: Added function for Twitter users
      fetch(SERVER_URL + '/auth/user', {
       credentials: 'include',
       method: 'GET',
@@ -42,7 +41,7 @@ class App extends Component {
      })
      .then(response => response.json())
      .then(response => {
-      console.log('fetch response', response);
+      // console.log('fetch response', response);
       if (response.user) {
         // We found a twitter user in the server session
         // console.log('user found. response:', response);
@@ -60,22 +59,22 @@ class App extends Component {
     });
   }
 
+  componentDidMount() {
+    this.updateUser();
+  }
+
   render() {
-    // console.log('rendering now. state is', this.state);
-    // let message = <div>No one is logged in!</div>;
-    // if(this.state.user.handle !== ''){
-    //   message = (
-    //     <div>
-    //       Someone named {this.state.user.handle} is logged in!
-    //     </div>)
-    // }
     return (
       <div>
         <Switch>
           <Route exact path='/' component={() => <Home user={this.state.user} />} />
           <Route path='/profile' component={() => <Profile user={this.state.user} />} />
-          <Route path='/users' component={() => <Users user={this.state.user} />} />
-          <Route path='/browse' component={() => <Browse user={this.state.user} />} />
+          <Route path='/users' component={() => <Users 
+                                                user={this.state.user} 
+                                                updateUser={this.updateUser} />} />
+          <Route path='/browse' component={() => <Browse 
+                                                user={this.state.user} 
+                                                updateUser={this.updateUser} />} />
         </Switch>
       </div>
     );

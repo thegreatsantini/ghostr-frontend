@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import {
     Col,
     Card,
-    CardTitle,
-    Button
+    CardTitle
 } from 'react-materialize';
 
 class PurchasedTweets extends Component {

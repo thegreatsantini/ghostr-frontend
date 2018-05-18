@@ -30,12 +30,12 @@ class Stats extends Component {
             <div>
                 <div>
                     <h3> {this.props.user.handle} </h3>
+                    <img src={this.props.user.pic} alt='profile pic' />
                     <NewInkyTweetForm />
                     <h5> Reputation: {this.props.user.reputation} </h5>
                 </div>
                 <Collection header='Subscriptions'>
                     { subsList }
-                    
                 </Collection>
             </div>
         );

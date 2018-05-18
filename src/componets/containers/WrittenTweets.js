@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Card, CardTitle } from 'react-materialize';
-const SERVER_URL = 'http://localhost:8080';
+// const SERVER_URL = 'http://localhost:8080';
 
 
 
@@ -45,10 +45,10 @@ class WrittenTweets extends Component {
         let writtenTweetsList = this.state.writtenTweets.map((tweet, i) => {
             return (
                 <Card
+                    key={i}
                     header={<CardTitle reveal waves='light' />}
                     title={tweet}
-                    reveal={<p>Hashtags will go here</p>}
-                >
+                    reveal={<p>Hashtags will go here</p>} >
                     <p>
                         <a href="http://localhost:3000/profile#/">Creator</a>{' '}
                         <button
