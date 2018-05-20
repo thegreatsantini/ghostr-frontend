@@ -24,9 +24,9 @@ class NewInkyTweetForm extends Component {
     }
 
     handleSubmit = () => {
-        axios.post(SERVER_URL + '/profile', this.state.inkyTweet)
-        // this.props.updateList();
-
+        let req = {tweet: this.state.inkyTweet, writer: this.props.user};
+        axios.post(SERVER_URL + '/profile/', req);
+        this.props.updateUser();
     }
 
 

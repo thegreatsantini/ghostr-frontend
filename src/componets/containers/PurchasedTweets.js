@@ -22,47 +22,35 @@ class PurchasedTweets extends Component {
     }
     
     render() {
-        // let purchasedTweets = <div>No purchased tweets</div>;
-        // if (this.props.user.purchasedTweets !== []) {
-        //     purchasedTweets = this.props.user.purchasedTweets.map((tweet, i) => {
-        //         return (
-        //             <Card key={i} header={<CardTitle reveal waves='light' />}
-        //                 title={tweet}
-        //                 reveal={<p>Here is some more information about this product that is only revealed once clicked on.</p>}>
-        //                 <p><a href="#">This is a link</a></p>
-        //             </Card>
-        //         )
-        //     })
-        // }
-
-        var buttonStyle = {
-            margin: '10px 10px 10px 0',
-        };
-
-        let purchasedTweetsList = this.state.purchasedTweets.map((tweet, i) => {
-
-            return (
-                <Card
-                    key={i}
-                    header={<CardTitle reveal waves='light' />}
-                    title={tweet}
-                    reveal={<p>Hashtags will go here</p>}
-                >
-                    <p><a 
-                        href='http://localhost:3000/'>Creator</a>{' '} 
-                        <button
-                            id={i}
-                            className="btn btn-default"
-                            style={buttonStyle}
-                            onClick={(e) => this.handleTweetRemove(e)}>Remove</button></p>
-                </Card>
-            )
-        })
+        const buttonStyle = {margin: '10px 10px 10px 0'};
+        let purchasedTweets = <div>No written tweets</div>;
+        let tags = '';
+        if (this.props.user.purchasedTweets !== []) {
+            purchasedTweets = this.props.user.purchasedTweets.map((tweet, i) => {
+                tweet.categories === [] ? tags = '' : tags = tweet.categories.map((tag, i) => {return (<p key={i}> {tag} </p>)});
+                return (
+                    <Card
+                        key={i}
+                        header={<CardTitle reveal waves='light' />}
+                        title={tweet.body}
+                        reveal={<div>{tags}</div>} >
+                        <p>
+                            <a href="http://localhost:3000/profile#/">Creator</a>{' '}
+                            <button
+                                id={i}
+                                className="btn btn-default"
+                                style={buttonStyle}
+                                onClick={(e) => this.handleTweetRemove(e)}>Remove</button>
+                        </p>
+                    </Card>
+                )
+            })
+        }
 
         return (
             <div>
                 <Col s={4}>
-                    {purchasedTweetsList}
+                    {purchasedTweets}
                 </Col>
             </div>
         );

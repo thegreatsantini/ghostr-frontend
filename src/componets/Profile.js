@@ -41,8 +41,9 @@ class Profile extends Component {
                         <Row>
                             <Col s={4} > 
                             <Stats 
-                            user={this.props.user} 
-                            /></Col>
+                                user={this.props.user}
+                                updateUser={this.props.updateUser} />
+                            </Col>
                             <WrittenTweets user={this.props.user} />
                             <PurchasedTweets user={this.props.user} />
                         </Row>

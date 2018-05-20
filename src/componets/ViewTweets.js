@@ -26,7 +26,7 @@ class ViewTweets extends Component {
 	    		this.setState({
 	    			tweets: response.writtenTweets
 	    		}, () => {
-                    // console.log(this.props.user);
+                    console.log(this.state.tweets);
                 })
 	    	}
 	    });

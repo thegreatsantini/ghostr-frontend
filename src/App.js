@@ -50,9 +50,9 @@ class App extends Component {
           ,handle:          response.user.handle
           ,pic:             response.user.pic
           ,reputation:      response.user.reputation
-          ,purchasedTweets: response.user.purchasedTweets
+          ,purchasedTweets: response.purchasedTweets
           ,subscriptions:   response.user.subscriptions
-          ,writtenTweets:   response.user.writtenTweets
+          ,writtenTweets:   response.writtenTweets
         }
         this.setState({ user: twitterUser });
       }
@@ -68,7 +68,9 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path='/' component={() => <Home user={this.state.user} />} />
-          <Route path='/profile' component={() => <Profile user={this.state.user} />} />
+          <Route path='/profile' component={() => <Profile 
+                                                user={this.state.user}
+                                                updateUser={this.updateUser} />} />
           <Route path='/users' component={() => <Users 
                                                 user={this.state.user} 
                                                 updateUser={this.updateUser} />} />
