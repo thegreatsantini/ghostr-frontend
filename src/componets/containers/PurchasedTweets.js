@@ -23,7 +23,7 @@ class PurchasedTweets extends Component {
     
     render() {
         const buttonStyle = {margin: '10px 10px 10px 0'};
-        let purchasedTweets = <div>No written tweets</div>;
+        let purchasedTweets = <div>No purchased tweets</div>;
         let tags = '';
         if (this.props.user.purchasedTweets !== []) {
             purchasedTweets = this.props.user.purchasedTweets.map((tweet, i) => {

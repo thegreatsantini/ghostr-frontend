@@ -44,8 +44,10 @@ class Profile extends Component {
                                 user={this.props.user}
                                 updateUser={this.props.updateUser} />
                             </Col>
-                            <WrittenTweets user={this.props.user} />
-                            <PurchasedTweets user={this.props.user} />
+                            <WrittenTweets user={this.props.user}
+                                           updateUser={this.props.updateUser} />
+                            <PurchasedTweets user={this.props.user}
+                                             updateUser={this.props.updateUser} />
                         </Row>
                     </div>
                 </div>

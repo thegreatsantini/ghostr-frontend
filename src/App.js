@@ -22,13 +22,15 @@ class App extends Component {
         ,pic:             ''
         ,reputation:      0
         ,purchasedTweets: []
-        ,subscriptions:   []
         ,writtenTweets:   []
+        ,subscriptions:   []
+        ,followers:       []
       }
     };
   }
 
   updateUser = () => {
+    console.log('update user');
      // OAuth: Added function for Twitter users
      fetch(SERVER_URL + '/auth/user', {
       credentials: 'include',
@@ -53,8 +55,10 @@ class App extends Component {
           ,purchasedTweets: response.purchasedTweets
           ,subscriptions:   response.user.subscriptions
           ,writtenTweets:   response.writtenTweets
+          ,followers:       response.followers
         }
         this.setState({ user: twitterUser });
+        // console.log(this.state.user.writtenTweets);
       }
     });
   }
