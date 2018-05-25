@@ -13,7 +13,7 @@ class Browse extends Component {
                 <div className="content">
                     <Row>
                         <Col s={2} > <Stats user={this.props.user} /></Col>
-                        <Users />
+                        <Users user={this.props.user} updateUser={this.props.updateUser}/>
                     </Row>
                 </div>
             </div>

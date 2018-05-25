@@ -11,6 +11,12 @@ const SERVER_URL = 'http://localhost:8080';
 
 class Home extends Component {
     render() {
+        let button = '';
+        if (this.props.user.handle === '') {
+            button = <Button waves='light' node='a' href={SERVER_URL + '/auth/login'}>Login With Twitter</Button>
+        } else {
+            button = <Button waves='light' node='a' href='/profile'>Home</Button>
+        }
         return (
             <div>
                 <div className='container'>
@@ -27,8 +33,7 @@ class Home extends Component {
                     </div>
                     <hr />
                     <div className='right'>
-                        <Button waves='light' node='a' href='/profile'>Go to home</Button>
-                        <Button waves='light' node='a' href={SERVER_URL + '/auth/login'}>Login With Twitter</Button>
+                        {button}
                     </div>
                 </div>
             </div>
