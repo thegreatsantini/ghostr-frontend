@@ -9,7 +9,9 @@ import '../Home.css';
 // const SERVER_URL = 'https://inkytweet.herokuapp.com';
 const SERVER_URL = 'http://localhost:8080';
 
-class Home extends Component {
+
+
+class LandingPage extends Component {
     render() {
         let button = '';
         if (this.props.user.handle === '') {
@@ -41,4 +43,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default LandingPage;

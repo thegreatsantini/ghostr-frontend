@@ -9,20 +9,36 @@ import {
 
 
 class Header extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            userName : ''
+        }
+
+    }
     handleChange = (e, val) => {
         this.props.filter(val)
     }
 
+    componentDidMount = () => {
+        this.setState({
+            userName : this.props.user.handle
+        })
+    }
+
     render() {
-        let userName = 'User';
-        if (this.props.user.handle !== '') { userName = this.props.user.handle }
+        let  userName = this.props.user.handle
+        // let userName = 'User';
+        // if (this.props.user.handle !== '') { userName = this.props.user.handle }
         return (
             <div>
                 <Navbar brand='InkyTweet' right>
                     <Row>
                         <Input onChange={(e, val) => this.handleChange(e, val)} s={4} placeholder='Search...'/>
                         <NavItem s={4} href='/browse'>Browse</NavItem>
-                        <NavItem s={4} href='/profile'>{userName}</NavItem>
+                        <NavItem s={4} href='/profile'>
+                        {userName}
+                        </NavItem>
                     </Row>
                 </Navbar>
             </div>
