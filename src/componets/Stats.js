@@ -19,8 +19,9 @@ class Stats extends Component {
         //     });
         // }
 
-        const subscriptionsList = [ '@officialjadensmith', '@weratedogs', '@fuckjerry' ]
-       let subsList = subscriptionsList.map( (sub, i) => {
+        // const subscriptionsList = [ '@officialjadensmith', '@weratedogs', '@fuckjerry' ]
+       // let subsList = subscriptionsList.map( (sub, i) => {
+        let subsList = this.props.user.subscriptions.map( (sub, i) => {
             return (
                 <CollectionItem key={i}> {sub}  </CollectionItem>
             )

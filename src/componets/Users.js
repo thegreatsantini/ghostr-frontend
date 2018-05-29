@@ -29,20 +29,26 @@ class Users extends Component {
             });
         })
     }
+    
     render() {
         let allUsers = '';
+        let searchInput = new RegExp(this.props.query, 'i');
         if (this.state.users !== []) {
             allUsers = this.state.users.map((user, i) => {
-                return (
-                    <Col key={i} s={4} m={3}>
-                        <Card className='darken-1' textClassName='white-text' title={user.handle}>
-                            <ViewTweets 
-                                userHandle={user.handle}
-                                user={this.props.user}
-                                updateUser={this.props.updateUser} />
-                        </Card>
-                    </Col>
-                )
+                if (this.props.query === '' || searchInput.test(user.handle)) {
+                    return (
+                        <Col key={i} s={4} m={3}>
+                            <Card className='darken-1' textClassName='white-text' title={user.handle}>
+                                <ViewTweets 
+                                    userHandle={user.handle}
+                                    user={this.props.user}
+                                    updateUser={this.props.updateUser} />
+                            </Card>
+                        </Col>
+                    )
+                } else {
+                    return(<p></p>)
+                }
             })
         }
         return (

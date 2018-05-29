@@ -2,37 +2,29 @@ import React, { Component } from "react";
 import {
     Navbar,
     NavItem,
-    Icon,
+    // Icon,
+    Row,
+    Input,
 } from 'react-materialize'
-// import Search from '../Search'
-// import '../../Search.css'
+
 
 class Header extends Component {
+    handleChange = (e, val) => {
+        this.props.filter(val)
+    }
+
     render() {
         let userName = 'User';
         if (this.props.user.handle !== '') { userName = this.props.user.handle }
         return (
             <div>
                 <Navbar brand='InkyTweet' right>
-                    <NavItem ><Icon>search</Icon></NavItem>
-                    <NavItem href='/browse'>Browse</NavItem>
-                    <NavItem href='/profile/stats'>Stats</NavItem>
-                    <NavItem href='/profile'>{userName}</NavItem>
+                    <Row>
+                        <Input onChange={(e, val) => this.handleChange(e, val)} s={4} placeholder='Search...'/>
+                        <NavItem s={4} href='/browse'>Browse</NavItem>
+                        <NavItem s={4} href='/profile'>{userName}</NavItem>
+                    </Row>
                 </Navbar>
-                    {/* <Row>
-                        <Autocomplete
-                            s={4}
-                            title='Tweets'
-                            data={
-                                {
-                                    'Apple': null,
-                                    'Microsoft': null,
-                                    'Google': 'http://placehold.it/250x250'
-                                }
-                            }
-                        />
-                    </Row> */}
-                            {/* <Search s={4} /> */}
             </div>
                 )
             }

@@ -25,9 +25,7 @@ class ViewTweets extends Component {
 	    	if (response.writtenTweets !== []) {
 	    		this.setState({
 	    			tweets: response.writtenTweets
-	    		}, () => {
-                    console.log(this.state.tweets);
-                })
+	    		})
 	    	}
 	    });
         if (this.props.user.subscriptions.indexOf(this.props.userHandle) !== -1) { this.setState({ sub: false })}
@@ -46,7 +44,7 @@ class ViewTweets extends Component {
         }).then(res => res.json())
         .catch(error => console.error('Error:', error))
         .then(response => {
-            console.log('Success:', response);
+            // console.log('Success:', response);
             this.props.updateUser();
         });
     }
