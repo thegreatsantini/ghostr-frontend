@@ -5,7 +5,7 @@ import {
     HashRouter,
 } from "react-router-dom";
 
-// import Header from './partials/Header';
+import Header from './partials/Header';
 import '../Profile.css';
 import Stats from './Stats';
 import WrittenTweets from './containers/WrittenTweets';
@@ -28,9 +28,9 @@ class Profile extends Component {
         return (
             // <HashRouter>
                 <div>
-                    {/* <Header user={this.props.user}
+                    <Header user={this.props.user}
                         handleSearch={this.props.handleSearch}
-                        filter={this.filter} /> */}
+                        filter={this.filter} />
                     <div className="content">
                         <Row>
                             <Col s={4} >
