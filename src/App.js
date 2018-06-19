@@ -3,7 +3,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-// import Home from './componets/Home';
+import Header from './componets/partials/Header';
 import Home from './componets/Home';
 import Profile from './componets/Profile';
 import Browse from './componets/Browse';
@@ -17,14 +17,14 @@ class App extends Component {
     super(props);
     this.state = {
       user: {
-        twitterId:        ''
-        ,handle:          ''
-        ,pic:             ''
-        ,reputation:      0
-        ,purchasedTweets: []
-        ,writtenTweets:   []
-        ,subscriptions:   []
-        ,followers:       []
+        twitterId: ''
+        , handle: ''
+        , pic: ''
+        , reputation: 0
+        , purchasedTweets: []
+        , writtenTweets: []
+        , subscriptions: []
+        , followers: []
       },
       input: ''
     };
@@ -32,8 +32,8 @@ class App extends Component {
 
   updateUser = () => {
     // console.log('update user');
-     // OAuth: Added function for Twitter users
-     fetch(SERVER_URL + '/auth/user', {
+    // OAuth: Added function for Twitter users
+    fetch(SERVER_URL + '/auth/user', {
       credentials: 'include',
       method: 'GET',
       headers: {
@@ -41,27 +41,27 @@ class App extends Component {
         'Content-Type': 'application/json',
         'Cache': 'no-cache'
       }
-     })
-     .then(response => response.json())
-     .then(response => {
-      // console.log('fetch response', response);
-      if (response.user) {
-        // We found a twitter user in the server session
-        // console.log('user found. response:', response);
-        let twitterUser = {
-          twitterId:        response.user.twitterId
-          ,handle:          response.user.handle
-          ,pic:             response.user.pic
-          ,reputation:      response.user.reputation
-          ,purchasedTweets: response.purchasedTweets
-          ,subscriptions:   response.user.subscriptions
-          ,writtenTweets:   response.writtenTweets
-          ,followers:       response.followers
+    })
+      .then(response => response.json())
+      .then(response => {
+        // console.log('fetch response', response);
+        if (response.user) {
+          // We found a twitter user in the server session
+          // console.log('user found. response:', response);
+          let twitterUser = {
+            twitterId: response.user.twitterId
+            , handle: response.user.handle
+            , pic: response.user.pic
+            , reputation: response.user.reputation
+            , purchasedTweets: response.purchasedTweets
+            , subscriptions: response.user.subscriptions
+            , writtenTweets: response.writtenTweets
+            , followers: response.followers
+          }
+          this.setState({ user: twitterUser });
+          // console.log(this.state.user.writtenTweets);
         }
-        this.setState({ user: twitterUser });
-        // console.log(this.state.user.writtenTweets);
-      }
-    });
+      });
   }
 
   handleSearch = (val) => {
@@ -76,16 +76,21 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header
+                user={this.state.user}
+                handleSearch={this.state.handleSearch}
+                filter ={this.filter} 
+                />
         <Switch>
           <Route exact path='/' component={() => <Home user={this.state.user} />} />
-          <Route path='/profile' component={() => <Profile 
-                                                user={this.state.user}
-                                                updateUser={this.updateUser}
-                                                handleSearch={this.handleSearch} />} />
-          <Route path='/browse' component={() => <Browse 
-                                                user={this.state.user} 
-                                                updateUser={this.updateUser}
-                                                handleSearch={this.handleSearch} />} />
+          <Route path='/profile' component={() => <Profile
+            user={this.state.user}
+            updateUser={this.updateUser}
+            handleSearch={this.handleSearch} />} />
+          <Route path='/browse' component={() => <Browse
+            user={this.state.user}
+            updateUser={this.updateUser}
+            handleSearch={this.handleSearch} />} />
         </Switch>
       </div>
     );
