@@ -87,6 +87,7 @@ class App extends Component {
             user={this.state.user}
             updateUser={this.updateUser}
             handleSearch={this.handleSearch} />} />
+          {/* <Route  path='/logout' /> */}
         </Switch>
       </div>
     );

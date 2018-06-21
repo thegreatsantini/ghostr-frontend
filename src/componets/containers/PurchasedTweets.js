@@ -44,7 +44,7 @@ class PurchasedTweets extends Component {
                             title={tweet.body}
                             reveal={<div>{tags}</div>} >
                             <p>
-                                <a href="#">By: {tweet.creator}</a>{' '}
+                                <a href="/">By: {tweet.creator}</a>{' '}
                                 <button
                                     id={i}
                                     className="btn btn-default"

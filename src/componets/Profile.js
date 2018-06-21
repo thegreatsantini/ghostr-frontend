@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Row, Col } from 'react-materialize';
 
-import {
-    HashRouter,
-} from "react-router-dom";
+// import {
+//     HashRouter,
+// } from "react-router-dom";
 
 import Header from './partials/Header';
 import '../Profile.css';
