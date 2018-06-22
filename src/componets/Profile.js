@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { Row, Col } from 'react-materialize';
-import {
-    HashRouter,
-} from "react-router-dom";
 import '../Profile.css';
 import Stats from './Stats';
 import WrittenTweets from './containers/WrittenTweets';
@@ -23,7 +20,6 @@ class Profile extends Component {
 
     render() {
         return (
-            <HashRouter>
                 <div>
                     <div className="content">
                         <Row>
@@ -41,7 +37,6 @@ class Profile extends Component {
                         </Row>
                     </div>
                 </div>
-            </HashRouter>
         );
     }
 }

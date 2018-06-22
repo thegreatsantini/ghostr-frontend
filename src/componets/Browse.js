@@ -20,7 +20,11 @@ class Browse extends Component {
             <div>
                 <div className="content">
                     <Row>
-                        <Col s={2} > <Stats user={this.props.user} /></Col>
+                        <Col s={2} > 
+                            <Stats
+                                updateUser={this.props.updateUser}
+                                user={this.props.user} />
+                        </Col>
                         <Users user={this.props.user}
                             updateUser={this.props.updateUser}
                             query={this.state.query} />

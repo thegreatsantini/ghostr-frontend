@@ -4,10 +4,10 @@ import {
   Route,
 } from "react-router-dom";
 import Header from './componets/partials/Header';
-import Home from './componets/Home';
 import Profile from './componets/Profile';
 import Browse from './componets/Browse';
 import './App.css';
+// import Header from './componets/partials/Header';
 // const SERVER_URL = 'https://inkytweet.herokuapp.com';
 const SERVER_URL = 'http://localhost:8080';
 
@@ -65,7 +65,7 @@ class App extends Component {
   }
 
   handleSearch = (val) => {
-    console.log(val)
+    // console.log(val);
     this.setState({ input: val })
   }
 
@@ -82,8 +82,8 @@ class App extends Component {
                 filter ={this.filter} 
                 />
         <Switch>
-          <Route exact path='/' component={() => <Home user={this.state.user} />} />
-          <Route path='/profile' component={() => <Profile
+          <Route exact path='/' component={() => <LandingPage user={this.state.user} />} />
+          <Route path={`/user/${this.state.user.handle}`} component={() => <Profile
             user={this.state.user}
             updateUser={this.updateUser}
             handleSearch={this.handleSearch} />} />
