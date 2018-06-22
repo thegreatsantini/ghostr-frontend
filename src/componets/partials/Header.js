@@ -38,13 +38,13 @@ class Header extends Component {
             buttons =   <Row>
                             <Input onChange={(e, val) => this.handleChange(e, val)} s={4} placeholder='Search...'/>
                             <NavItem s={4} href='/browse'>Browse</NavItem>
-                            <NavItem s={4} href='/profile'>{this.props.user.handle}</NavItem>
+                            <NavItem s={4} href={`/user/${this.props.user.handle}`}>{this.props.user.handle}</NavItem>
                             <NavItem s={4} href={SERVER_URL + '/auth/logout'}>Logout</NavItem>
                         </Row>
         }
         return (
             <div>
-                <Navbar brand='InkyTweet' right>
+                <Navbar brand=' InkyTweet' right>
                     {buttons}
                 </Navbar>
             </div>

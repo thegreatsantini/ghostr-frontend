@@ -66,7 +66,7 @@ class App extends Component {
   }
 
   handleSearch = (val) => {
-    console.log(val)
+    // console.log(val);
     this.setState({ input: val })
   }
 
@@ -79,7 +79,7 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path='/' component={() => <LandingPage user={this.state.user} />} />
-          <Route path='/profile' component={() => <Profile
+          <Route path={`/user/${this.state.user.handle}`} component={() => <Profile
             user={this.state.user}
             updateUser={this.updateUser}
             handleSearch={this.handleSearch} />} />
