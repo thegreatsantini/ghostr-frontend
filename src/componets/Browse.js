@@ -18,30 +18,16 @@ class Browse extends Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
-                <Header
-                    user={this.props.user}
-                    handleSearch={this.props.handleSearch}
-                    filter={this.filter} />
                 <div className="content">
                     <Row>
-                        <Col s={2} >
+                        <Col s={2} > 
                             <Stats
                                 updateUser={this.props.updateUser}
                                 user={this.props.user} />
                         </Col>
-                            <Users
-                                user={this.props.user}
-                                updateUser={this.props.updateUser}
-                                query={this.state.query} />
-=======
-                <div className="content">
-                    <Row>
-                        <Col s={2} > <Stats user={this.props.user} /></Col>
                         <Users user={this.props.user}
                             updateUser={this.props.updateUser}
                             query={this.state.query} />
->>>>>>> 4c1d274e0973318de8db5205b27acb70f3d97594
                     </Row>
                 </div>
             </div>

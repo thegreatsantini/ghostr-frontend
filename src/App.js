@@ -3,13 +3,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-<<<<<<< HEAD
-// import Home from './componets/Home';
-import LandingPage from './componets/LandingPage';
-=======
 import Header from './componets/partials/Header';
-import Home from './componets/Home';
->>>>>>> 4c1d274e0973318de8db5205b27acb70f3d97594
 import Profile from './componets/Profile';
 import Browse from './componets/Browse';
 import './App.css';
@@ -88,13 +82,8 @@ class App extends Component {
                 filter ={this.filter} 
                 />
         <Switch>
-<<<<<<< HEAD
           <Route exact path='/' component={() => <LandingPage user={this.state.user} />} />
           <Route path={`/user/${this.state.user.handle}`} component={() => <Profile
-=======
-          <Route exact path='/' component={() => <Home user={this.state.user} />} />
-          <Route path='/profile' component={() => <Profile
->>>>>>> 4c1d274e0973318de8db5205b27acb70f3d97594
             user={this.state.user}
             updateUser={this.updateUser}
             handleSearch={this.handleSearch} />} />
@@ -102,10 +91,6 @@ class App extends Component {
             user={this.state.user}
             updateUser={this.updateUser}
             handleSearch={this.handleSearch} />} />
-<<<<<<< HEAD
-          {/* <Route  path='/logout' /> */}
-=======
->>>>>>> 4c1d274e0973318de8db5205b27acb70f3d97594
         </Switch>
       </div>
     );
